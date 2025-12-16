@@ -2,95 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 218 58% 9%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 218 45% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 218 45% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 187 100% 42%;
+    --primary-foreground: 218 58% 9%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 218 35% 18%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 218 35% 18%;
+    --muted-foreground: 210 20% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 187 100% 50%;
+    --accent-foreground: 218 58% 9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 187 40% 25%;
+    --input: 218 35% 20%;
+    --ring: 187 100% 42%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom Winter Theme Colors */
+    --winter-deep: 218 58% 9%;
+    --winter-dark: 218 45% 12%;
+    --winter-cyan: 187 100% 42%;
+    --winter-cyan-glow: 187 100% 50%;
+    --winter-teal: 180 60% 35%;
+    --winter-purple: 270 50% 40%;
+    --winter-silver: 210 20% 85%;
+    --winter-frost: 200 30% 95%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Glassmorphism */
+    --glass-bg: 218 45% 12% / 0.6;
+    --glass-border: 187 40% 40% / 0.3;
+    --glass-glow: 187 100% 50% / 0.2;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Gradients */
+    --gradient-aurora: linear-gradient(135deg, hsl(187 100% 42% / 0.3), hsl(270 50% 40% / 0.2), hsl(180 60% 35% / 0.3));
+    --gradient-frost: linear-gradient(180deg, hsl(200 30% 95% / 0.1), transparent);
+    --gradient-glow: linear-gradient(90deg, hsl(187 100% 50%), hsl(180 60% 45%), hsl(187 100% 50%));
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 218 45% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 187 100% 42%;
+    --sidebar-primary-foreground: 218 58% 9%;
+    --sidebar-accent: 218 35% 18%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 187 40% 25%;
+    --sidebar-ring: 187 100% 42%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 218 58% 9%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 218 45% 12%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 218 45% 12%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 187 100% 42%;
+    --primary-foreground: 218 58% 9%;
+    --secondary: 218 35% 18%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
+    --muted: 218 35% 18%;
+    --muted-foreground: 210 20% 70%;
+    --accent: 187 100% 50%;
+    --accent-foreground: 218 58% 9%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 187 40% 25%;
+    --input: 218 35% 20%;
+    --ring: 187 100% 42%;
   }
 }
 
@@ -99,7 +94,245 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Rajdhani', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply relative overflow-hidden rounded-xl;
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 
+      0 8px 32px hsl(var(--winter-deep) / 0.4),
+      inset 0 1px 0 hsl(var(--winter-frost) / 0.1);
+  }
+
+  .glass-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: var(--gradient-aurora);
+    z-index: -1;
+  }
+
+  .glass-card:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Glowing Border */
+  .glow-border {
+    @apply relative;
+  }
+
+  .glow-border::after {
+    content: '';
+    @apply absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 pointer-events-none;
+    background: linear-gradient(90deg, transparent, hsl(var(--winter-cyan-glow) / 0.5), transparent);
+    filter: blur(8px);
+  }
+
+  .glow-border:hover::after {
+    @apply opacity-100;
+  }
+
+  /* Frost Text Effect */
+  .frost-text {
+    background: linear-gradient(180deg, hsl(var(--winter-frost)), hsl(var(--winter-silver)), hsl(var(--winter-cyan)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px hsl(var(--winter-cyan-glow) / 0.3);
+  }
+
+  /* Shimmer Animation */
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--winter-frost)) 0%,
+      hsl(var(--winter-cyan)) 25%,
+      hsl(var(--winter-frost)) 50%,
+      hsl(var(--winter-cyan)) 75%,
+      hsl(var(--winter-frost)) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Button Variants */
+  .btn-primary {
+    @apply relative px-8 py-3 font-semibold rounded-lg overflow-hidden transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--winter-cyan)), hsl(var(--winter-teal)));
+    color: hsl(var(--winter-deep));
+    box-shadow: 
+      0 4px 20px hsl(var(--winter-cyan) / 0.4),
+      inset 0 1px 0 hsl(var(--winter-frost) / 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 30px hsl(var(--winter-cyan) / 0.6),
+      inset 0 1px 0 hsl(var(--winter-frost) / 0.4);
+  }
+
+  .btn-secondary {
+    @apply relative px-8 py-3 font-semibold rounded-lg overflow-hidden transition-all duration-300;
+    background: transparent;
+    color: hsl(var(--winter-frost));
+    border: 1px solid hsl(var(--winter-cyan) / 0.5);
+    backdrop-filter: blur(8px);
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--winter-cyan) / 0.1);
+    border-color: hsl(var(--winter-cyan));
+    box-shadow: 0 0 20px hsl(var(--winter-cyan) / 0.3);
+  }
+
+  /* Input Frost Style */
+  .input-frost {
+    @apply w-full px-4 py-3 rounded-lg transition-all duration-300;
+    background: hsl(var(--winter-dark) / 0.6);
+    border: 1px solid hsl(var(--winter-cyan) / 0.2);
+    color: hsl(var(--foreground));
+    backdrop-filter: blur(8px);
+  }
+
+  .input-frost:focus {
+    @apply outline-none;
+    border-color: hsl(var(--winter-cyan));
+    box-shadow: 0 0 20px hsl(var(--winter-cyan) / 0.2);
+  }
+
+  .input-frost::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Nav Link Animation */
+  .nav-link {
+    @apply relative px-4 py-2 text-sm font-medium transition-colors duration-300;
+    color: hsl(var(--winter-silver));
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-0 h-0.5 -translate-x-1/2 transition-all duration-300;
+    background: var(--gradient-glow);
+    box-shadow: 0 0 10px hsl(var(--winter-cyan-glow));
+  }
+
+  .nav-link:hover {
+    color: hsl(var(--winter-frost));
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--winter-cyan) / 0.4); }
+    50% { box-shadow: 0 0 40px hsl(var(--winter-cyan) / 0.6); }
+  }
+
+  @keyframes snow-fall {
+    0% { transform: translateY(-10vh) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh) translateX(20px); opacity: 0; }
+  }
+
+  @keyframes aurora {
+    0%, 100% { 
+      opacity: 0.3;
+      transform: translateX(-50%) scaleX(1);
+    }
+    50% { 
+      opacity: 0.5;
+      transform: translateX(-50%) scaleX(1.2);
+    }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-snow {
+    animation: snow-fall linear infinite;
+  }
+
+  .animate-aurora {
+    animation: aurora 8s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+  }
+
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
 }
