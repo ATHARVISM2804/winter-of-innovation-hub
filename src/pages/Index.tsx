@@ -31,6 +31,15 @@ const Index = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background overflow-x-hidden">
+        {/* Fixed Background */}
+        <div
+          className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
+          style={{
+            backgroundImage: `url('/castle-bg.jpg')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-winter-deep/60 via-winter-deep/40 to-winter-deep/80" />
+        </div>
         {/* Snow Effect */}
         <SnowParticles />
 

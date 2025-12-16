@@ -1,5 +1,4 @@
 import { Calendar, MapPin } from 'lucide-react';
-import castleBg from '@/assets/castle-bg.jpg';
 
 const HeroSection = () => {
   return (
@@ -7,17 +6,6 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image with Parallax Effect */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage: `url(${castleBg})`,
-        }}
-      >
-        {/* Overlay Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-b from-winter-deep/60 via-winter-deep/40 to-winter-deep/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-winter-deep via-transparent to-transparent" />
-      </div>
 
       {/* Aurora Effect */}
       <div className="absolute top-0 left-1/2 w-[200%] h-[40%] -translate-x-1/2 animate-aurora opacity-30">
