@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -8,10 +9,21 @@ import SponsorsSection from '@/components/SponsorsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import SnowParticles from '@/components/SnowParticles';
+import Preloader from '@/components/Preloader';
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <>
+      {/* Cinematic Preloader */}
+      {isLoading && (
+        <Preloader 
+          onLoadComplete={() => setIsLoading(false)} 
+          minDuration={4500}
+        />
+      )}
+
       <Helmet>
         <title>E-Summit 2026 | Winter of Innovation - NIT Hamirpur</title>
         <meta
@@ -30,7 +42,11 @@ const Index = () => {
         <link rel="canonical" href="https://esummit.nith.ac.in" />
       </Helmet>
 
-      <div className="min-h-screen bg-background overflow-x-hidden">
+      <div 
+        className={`min-h-screen bg-background overflow-x-hidden transition-all duration-1000 ${
+          isLoading ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
         {/* Fixed Background */}
         <div
           className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
