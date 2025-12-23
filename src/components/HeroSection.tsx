@@ -1,4 +1,5 @@
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin, Sparkles, Crown } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 // Social media links
 const socialLinks = [
@@ -52,14 +53,46 @@ const socialLinks = [
 ];
 
 const HeroSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Magical Rune Circle Background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[800px] h-[800px] opacity-10">
+          <svg viewBox="0 0 400 400" className="w-full h-full animate-[spin_60s_linear_infinite]">
+            <circle cx="200" cy="200" r="180" fill="none" stroke="hsl(187 100% 50%)" strokeWidth="0.5" strokeDasharray="10 5" />
+            <circle cx="200" cy="200" r="150" fill="none" stroke="hsl(187 100% 50%)" strokeWidth="0.3" strokeDasharray="5 10" className="animate-[spin_40s_linear_infinite_reverse]" />
+            <circle cx="200" cy="200" r="120" fill="none" stroke="hsl(270 50% 50%)" strokeWidth="0.5" strokeDasharray="15 5" />
+            {/* Rune symbols */}
+            {[0, 60, 120, 180, 240, 300].map((angle, i) => (
+              <text
+                key={i}
+                x="200"
+                y="30"
+                textAnchor="middle"
+                fill="hsl(187 100% 60%)"
+                fontSize="12"
+                fontFamily="serif"
+                transform={`rotate(${angle} 200 200)`}
+                className="opacity-60"
+              >
+                ᛟ
+              </text>
+            ))}
+          </svg>
+        </div>
+      </div>
 
       {/* Social Links - Right Side */}
-      <div className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-6">
+      <div className="hidden md:flex fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 flex-col items-center gap-6">
         {/* Decorative line above */}
         <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-winter-silver/30" />
         
@@ -104,48 +137,87 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 text-center">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
+          {/* Crown Icon */}
+          <div className={`flex justify-center mb-6 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+            <div className="relative">
+              <Crown className="w-12 h-12 text-winter-cyan animate-glow-pulse" />
+              <div className="absolute inset-0 blur-xl bg-winter-cyan/30 animate-pulse" />
+            </div>
+          </div>
+
+          {/* Decorative Line */}
+          <div className={`flex items-center justify-center gap-4 mb-8 transition-all duration-1000 delay-100 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-winter-cyan to-winter-cyan/50" />
+            <Sparkles className="w-5 h-5 text-winter-cyan animate-pulse" />
+            <div className="h-px w-24 bg-gradient-to-l from-transparent via-winter-cyan to-winter-cyan/50" />
+          </div>
+
           {/* Main Title */}
-          <h1 className="font-cinzel text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 opacity-0 animate-fade-in-up">
-            <span className="shimmer-text">WINTER OF</span>
-            <br />
-            <span className="frost-text">INNOVATION</span>
+          <h1 className={`font-cinzel-decorative text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 transition-all duration-1000 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="block shimmer-text animate-text-glow tracking-wider">WINTER OF</span>
+            <span className="block frost-text mt-2 animate-magical-float" style={{ textShadow: '0 0 60px hsl(187 100% 50% / 0.5), 0 0 120px hsl(270 50% 50% / 0.3)' }}>
+              INNOVATION
+            </span>
           </h1>
 
+          {/* Decorative Divider */}
+          <div className={`flex items-center justify-center gap-3 mb-8 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-winter-cyan/50" />
+            <div className="w-2 h-2 rotate-45 bg-winter-cyan/60 animate-pulse" />
+            <div className="text-winter-cyan/80 font-cormorant italic text-lg">Anno MMXXVI</div>
+            <div className="w-2 h-2 rotate-45 bg-winter-cyan/60 animate-pulse" />
+            <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-winter-cyan/50" />
+          </div>
+
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl md:text-2xl text-winter-silver/90 mb-10 font-light tracking-wide opacity-0 animate-fade-in-up animation-delay-200">
+          <p className={`font-cormorant text-xl sm:text-2xl md:text-3xl text-winter-silver/90 mb-12 font-light tracking-wide italic transition-all duration-1000 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Where ideas rise from the cold to ignite change
           </p>
 
           {/* Event Details */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 opacity-0 animate-fade-in-up animation-delay-300">
-            <div className="flex items-center gap-2 text-winter-silver">
-              <Calendar className="w-5 h-5 text-winter-cyan" />
-              <span className="text-sm md:text-base">Coming February 2026</span>
+          <div className={`flex flex-col sm:flex-row items-center justify-center gap-8 mb-14 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="flex items-center gap-3 text-winter-silver group">
+              <div className="p-2 rounded-lg bg-winter-cyan/10 border border-winter-cyan/30 group-hover:bg-winter-cyan/20 group-hover:border-winter-cyan/50 transition-all duration-300">
+                <Calendar className="w-5 h-5 text-winter-cyan" />
+              </div>
+              <span className="text-base md:text-lg font-rajdhani">Coming February 2026</span>
             </div>
-            <div className="hidden sm:block w-px h-6 bg-winter-cyan/30" />
-            <div className="flex items-center gap-2 text-winter-silver">
-              <MapPin className="w-5 h-5 text-winter-cyan" />
-              <span className="text-sm md:text-base">NIT Hamirpur</span>
+            <div className="hidden sm:block w-px h-8 bg-gradient-to-b from-transparent via-winter-cyan/50 to-transparent" />
+            <div className="flex items-center gap-3 text-winter-silver group">
+              <div className="p-2 rounded-lg bg-winter-cyan/10 border border-winter-cyan/30 group-hover:bg-winter-cyan/20 group-hover:border-winter-cyan/50 transition-all duration-300">
+                <MapPin className="w-5 h-5 text-winter-cyan" />
+              </div>
+              <span className="text-base md:text-lg font-rajdhani">NIT Hamirpur</span>
             </div>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in-up animation-delay-400">
-            <button className="btn-primary font-rajdhani text-lg animate-pulse-glow">
-              Get Tickets
+          <div className={`flex flex-col sm:flex-row items-center justify-center gap-6 transition-all duration-1000 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <button className="group relative btn-primary font-rajdhani text-lg px-10 py-4 animate-pulse-glow overflow-hidden">
+              <span className="relative z-10 flex items-center gap-2">
+                <Sparkles className="w-5 h-5" />
+                Get Tickets
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-winter-cyan via-white/20 to-winter-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </button>
-            <button className="btn-secondary font-rajdhani text-lg">
-              Know More
+            <button className="group btn-secondary font-rajdhani text-lg px-10 py-4 hover:scale-105 transition-all duration-300">
+              <span className="flex items-center gap-2">
+                Explore More
+                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in-up animation-delay-600">
-        <div className="w-6 h-10 rounded-full border-2 border-winter-cyan/50 flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-winter-cyan rounded-full animate-bounce" />
+      {/* Enhanced Scroll Indicator */}
+      <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-winter-silver/50 text-xs font-rajdhani tracking-widest uppercase">Scroll</span>
+          <div className="w-6 h-10 rounded-full border-2 border-winter-cyan/50 flex items-start justify-center p-2 animate-border-glow">
+            <div className="w-1.5 h-3 bg-winter-cyan rounded-full animate-bounce" />
+          </div>
         </div>
       </div>
     </section>
