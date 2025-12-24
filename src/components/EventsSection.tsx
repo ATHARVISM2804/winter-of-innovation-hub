@@ -9,6 +9,15 @@ import {
   Rocket,
   Code,
   Trophy,
+  Flag,
+  TrendingUp,
+  Mic,
+  AlertTriangle,
+  Gamepad2,
+  MessageCircle,
+  Hammer,
+  Camera,
+  Award,
 } from "lucide-react";
 
 const day1Events = [
@@ -37,7 +46,7 @@ const day1Events = [
     accentColor: "text-purple-400",
   },
   {
-    icon: Wrench,
+    icon: Mic,
     title: "The Talk Show",
     description:
       "One vision. One journey. A leader breaks the ice to share the raw truth of building in an unforgiving climate.",
@@ -48,7 +57,7 @@ const day1Events = [
 
 const day2Events = [
   {
-    icon: Code,
+    icon: AlertTriangle,
     title: "Black Ice Brief",
     description:
       "The storm hits without warning. Strategic minds must navigate the black ice of disaster to salvage reputation and forge recovery.",
@@ -56,7 +65,7 @@ const day2Events = [
     accentColor: "text-amber-400",
   },
   {
-    icon: Users,
+    icon: Gamepad2,
     title: "Glacial Games",
     description:
       "Pixelated blades clash in the cold. Digital gladiators enter the arena to outmaneuver the storm and claim cyber-supremacy.",
@@ -64,7 +73,7 @@ const day2Events = [
     accentColor: "text-winter-cyan",
   },
   {
-    icon: Wrench,
+    icon: Rocket,
     title: "Venturo",
     description:
       "Beneath the ice, a fire ignites. Visionaries face the glacial scrutiny of titans to temper their ideas into ironclad empires.",
@@ -72,7 +81,7 @@ const day2Events = [
     accentColor: "text-purple-400",
   },
   {
-    icon: Wrench,
+    icon: MessageCircle,
     title: "Panel Discussion",
     description:
       "Titans of industry gather in the frost. Wisdom meets fire as experts dissect the shifting frontiers of a frozen landscape.",
@@ -83,7 +92,7 @@ const day2Events = [
 
 const day3Events = [
   {
-    icon: Rocket,
+    icon: Trophy,
     title: "IPL Auction",
     description:
       "The gavel falls in the deep freeze. Strategists brave the bidding storm to draft a legacy and claim cricketing glory.",
@@ -91,7 +100,7 @@ const day3Events = [
     accentColor: "text-amber-400",
   },
   {
-    icon: Trophy,
+    icon: Hammer,
     title: "ProtoForze",
     description:
       "Raw metal meets the winter’s edge. Engineers breathe life into cold steel, sculpting tangible solutions from the depths of the forge.",
@@ -99,7 +108,7 @@ const day3Events = [
     accentColor: "text-winter-cyan",
   },
   {
-    icon: Star,
+    icon: Camera,
     title: "Creator’s Summit",
     description:
       "Art shatters the ice. Visionaries weave stories and capture light, painting the frozen canvas with the vibrant colors of digital influence.",
@@ -107,7 +116,7 @@ const day3Events = [
     accentColor: "text-purple-400",
   },
   {
-    icon: Star,
+    icon: Award,
     title: "Closing Ceremony",
     description:
       "Art shatters the ice. Visionaries weave stories and capture light, painting the frozen canvas with the vibrant colors of digital influence.",
@@ -258,8 +267,6 @@ const EventsSection = () => {
                     <p className="font-cormorant text-winter-silver/80 text-base leading-relaxed mb-6">
                       {event.description}
                     </p>
-
-                    
                   </div>
                 </div>
               </div>
@@ -341,7 +348,6 @@ const EventsSection = () => {
                     <p className="font-cormorant text-winter-silver/80 text-base leading-relaxed mb-6">
                       {event.description}
                     </p>
-
                   </div>
                 </div>
               </div>
@@ -423,8 +429,6 @@ const EventsSection = () => {
                     <p className="font-cormorant text-winter-silver/80 text-base leading-relaxed mb-6">
                       {event.description}
                     </p>
-
-                    
                   </div>
                 </div>
               </div>
