@@ -1,48 +1,50 @@
-import { useEffect, useRef, useState } from 'react';
-import { Mic2, Quote, Sparkles, ExternalLink } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import { Mic2, Quote, Sparkles, ExternalLink } from "lucide-react";
 
 const speakers = [
   {
-    name: 'Dr. Rajesh Kumar',
-    title: 'CEO, TechVentures India',
-    topic: 'The Future of AI in Entrepreneurship',
-    image: '',
-    year: '2025',
+    name: "Mr. Vivek Bhatia",
+    title: "IAS Officer",
+    topic: "Policy & Governance: Enabling Entrepreneurial Ecosystems",
+    image: "",
   },
   {
-    name: 'Priya Sharma',
-    title: 'Founder, GreenTech Solutions',
-    topic: 'Sustainable Innovation for Tomorrow',
-    image: '',
-    year: '2025',
+    name: "Mr. Rutwiz Dasadiya",
+    title: "Founder, Booz Mobility",
+    topic:
+      "Revolutionizing Urban Mobility: Building Sustainable Transport Ventures",
+    image: "",
   },
   {
-    name: 'Amit Patel',
-    title: 'Partner, Sequoia Capital',
-    topic: 'Funding Your Dream Startup',
-    image: '',
-    year: '2024',
+    name: "Mr. Gaurav Gupta",
+    title: "Associate Head, Tata Strive ",
+    topic: "Skilling for Entrepreneurship: Empowering India's Workforce",
+    image: "",
   },
   {
-    name: 'Dr. Sunita Reddy',
-    title: 'Director, IIT Delhi Innovation Hub',
-    topic: 'From Campus to Unicorn',
-    image: '',
-    year: '2024',
+    name: "Dr. Shikha Dhawan",
+    title: "Strategic Consulting",
+    topic: "Strategic Growth: Consulting Insights for Startup Success",
+    image: "",
   },
   {
-    name: 'Vikram Singh',
-    title: 'Co-founder, Razorpay',
-    topic: 'Building Fintech Innovations',
-    image: '',
-    year: '2023',
+    name: "Dr. Girish Sapra",
+    title: "Founder & CEO, Green Brigade Ltd. ",
+    topic: "Green Entrepreneurship: Building Sustainable Business Models",
+    image: "",
   },
   {
-    name: 'Neha Gupta',
-    title: 'Head of Startups, Google India',
-    topic: 'Scaling with Technology',
-    image: '',
-    year: '2023',
+    name: "Dr. Rahul Dhiman ",
+    title:
+      "Visiting Faculty at the University of Madrid, Spain & Netherlands  ",
+    topic: "Global Innovation: Bridging Academia and Entrepreneurship",
+    image: "",
+  },
+  {
+    name: "Dr. Tushar Bhatnagar ",
+    title: "Co-founder & CTO, vidBoard.ai; CEO & Co-founder, Alpha AI  ",
+    topic: "AI-Powered Ventures: From Ideation to Market Leadership",
+    image: "",
   },
 ];
 
@@ -84,7 +86,13 @@ const PastSpeakersSection = () => {
         {/* Section Header */}
         <div className="text-center mb-20">
           {/* Microphone Icon */}
-          <div className={`flex justify-center mb-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+          <div
+            className={`flex justify-center mb-6 transition-all duration-1000 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-10"
+            }`}
+          >
             <div className="relative">
               <div className="absolute inset-0 bg-winter-cyan/20 rounded-full blur-xl animate-pulse" />
               <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-winter-cyan/20 to-purple-500/20 border border-winter-cyan/30 flex items-center justify-center">
@@ -94,7 +102,11 @@ const PastSpeakersSection = () => {
           </div>
 
           {/* Decorative Line */}
-          <div className={`flex items-center justify-center gap-4 mb-6 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <div
+            className={`flex items-center justify-center gap-4 mb-6 transition-all duration-1000 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-winter-cyan/50" />
             <Sparkles className="w-5 h-5 text-winter-cyan animate-pulse" />
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-winter-cyan/50" />
@@ -102,7 +114,9 @@ const PastSpeakersSection = () => {
 
           <h2
             className={`font-cinzel-decorative text-4xl md:text-6xl font-bold mb-6 transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
             <span className="bg-gradient-to-r from-winter-frost via-winter-cyan to-purple-400 bg-clip-text text-transparent">
@@ -111,7 +125,9 @@ const PastSpeakersSection = () => {
           </h2>
           <p
             className={`font-cormorant text-xl text-winter-silver/70 max-w-2xl mx-auto italic transition-all duration-1000 delay-100 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
             Visionaries who have graced our stage and inspired thousands
@@ -124,7 +140,9 @@ const PastSpeakersSection = () => {
             <div
               key={index}
               className={`group relative transition-all duration-700 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-12"
               }`}
               style={{ transitionDelay: `${200 + index * 100}ms` }}
               onMouseEnter={() => setHoveredIndex(index)}
@@ -132,18 +150,16 @@ const PastSpeakersSection = () => {
             >
               {/* Card */}
               <div className="relative h-full frosted-glass mystic-card rounded-2xl p-6 border border-winter-cyan/10 hover:border-winter-cyan/30 transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_60px_-15px_rgba(0,200,255,0.15)]">
-                
-                {/* Year Badge */}
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-winter-cyan/10 border border-winter-cyan/30">
-                  <span className="font-rajdhani text-xs text-winter-cyan font-medium">{speaker.year}</span>
-                </div>
-
                 {/* Speaker Image Placeholder */}
                 <div className="relative w-24 h-24 mx-auto mb-6">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-winter-cyan/20 to-purple-500/20 animate-pulse" />
                   <div className="relative w-full h-full rounded-full bg-winter-dark/80 border-2 border-winter-cyan/30 flex items-center justify-center overflow-hidden group-hover:border-winter-cyan/50 transition-all duration-300">
                     {speaker.image ? (
-                      <img src={speaker.image} alt={speaker.name} className="w-full h-full object-cover" />
+                      <img
+                        src={speaker.image}
+                        alt={speaker.name}
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       <span className="font-cinzel text-3xl font-bold text-winter-cyan/60 group-hover:text-winter-cyan transition-colors">
                         {speaker.name.charAt(0)}
@@ -151,7 +167,11 @@ const PastSpeakersSection = () => {
                     )}
                   </div>
                   {/* Glow effect on hover */}
-                  <div className={`absolute inset-0 rounded-full bg-winter-cyan/20 blur-xl transition-opacity duration-300 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`} />
+                  <div
+                    className={`absolute inset-0 rounded-full bg-winter-cyan/20 blur-xl transition-opacity duration-300 ${
+                      hoveredIndex === index ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
                 </div>
 
                 {/* Speaker Info */}
@@ -162,7 +182,7 @@ const PastSpeakersSection = () => {
                   <p className="font-rajdhani text-sm text-winter-cyan/80 mb-4">
                     {speaker.title}
                   </p>
-                  
+
                   {/* Topic */}
                   <div className="relative mt-4 p-4 rounded-xl bg-winter-deep/50 border border-winter-cyan/10 group-hover:border-winter-cyan/20 transition-all duration-300">
                     <Quote className="absolute -top-2 -left-2 w-4 h-4 text-winter-cyan/40" />
@@ -181,8 +201,12 @@ const PastSpeakersSection = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className={`mt-16 text-center transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        {/* Bottom CTA
+        <div
+          className={`mt-16 text-center transition-all duration-1000 delay-500 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <p className="font-cormorant text-lg text-winter-silver/60 italic mb-4">
             Want to be a speaker at E-Summit 2026?
           </p>
@@ -193,7 +217,7 @@ const PastSpeakersSection = () => {
             Get in Touch
             <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );
