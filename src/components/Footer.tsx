@@ -1,13 +1,9 @@
 import { Mail, MapPin, Phone, ExternalLink, Snowflake, Sparkles, Heart, ArrowUp } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import Modal from './Modal';
-import PrivacyPolicy from './PrivacyPolicy';
-import TermsOfService from './TermsOfService';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
-  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -195,42 +191,25 @@ const Footer = () => {
           </p>
           
           <div className="flex items-center gap-8">
-            <button 
-              onClick={() => setIsPrivacyModalOpen(true)}
+            <Link 
+              to="/privacy"
               className="text-winter-silver/60 hover:text-winter-cyan transition-colors font-rajdhani hover:underline underline-offset-4"
             >
               Privacy Policy
-            </button>
+            </Link>
             <span className="text-winter-cyan/30">✦</span>
-            <button 
-              onClick={() => setIsTermsModalOpen(true)}
+            <Link 
+              to="/terms"
               className="text-winter-silver/60 hover:text-winter-cyan transition-colors font-rajdhani hover:underline underline-offset-4"
             >
               Terms of Service
-            </button>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Bottom Glow Effect */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-winter-cyan/50 to-transparent" />
-
-      {/* Modals */}
-      <Modal
-        isOpen={isPrivacyModalOpen}
-        onClose={() => setIsPrivacyModalOpen(false)}
-        title="Privacy Policy"
-      >
-        <PrivacyPolicy />
-      </Modal>
-
-      <Modal
-        isOpen={isTermsModalOpen}
-        onClose={() => setIsTermsModalOpen(false)}
-        title="Terms of Service"
-      >
-        <TermsOfService />
-      </Modal>
     </footer>
   );
 };
