@@ -54,9 +54,24 @@ const socialLinks = [
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
+
+    const handleScroll = () => {
+      // Check if footer is visible
+      const footer = document.querySelector('footer');
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        // Hide when footer is more than 50% visible
+        setIsFooterVisible(footerRect.top < windowHeight * 0.6);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -64,64 +79,52 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Magical Rune Circle Background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[800px] h-[800px] opacity-10">
-          <svg viewBox="0 0 400 400" className="w-full h-full animate-[spin_60s_linear_infinite]">
-            <circle cx="200" cy="200" r="180" fill="none" stroke="hsl(187 100% 50%)" strokeWidth="0.5" strokeDasharray="10 5" />
-            <circle cx="200" cy="200" r="150" fill="none" stroke="hsl(187 100% 50%)" strokeWidth="0.3" strokeDasharray="5 10" className="animate-[spin_40s_linear_infinite_reverse]" />
-            <circle cx="200" cy="200" r="120" fill="none" stroke="hsl(270 50% 50%)" strokeWidth="0.5" strokeDasharray="15 5" />
-            {/* Rune symbols */}
-            {[0, 60, 120, 180, 240, 300].map((angle, i) => (
-              <text
-                key={i}
-                x="200"
-                y="30"
-                textAnchor="middle"
-                fill="hsl(187 100% 60%)"
-                fontSize="12"
-                fontFamily="serif"
-                transform={`rotate(${angle} 200 200)`}
-                className="opacity-60"
-              >
-                ᛟ
-              </text>
-            ))}
-          </svg>
-        </div>
+      {/* E-Summit Logo - Top Left (Desktop Only) */}
+      <div className="hidden md:flex absolute top-6 left-6 z-50 items-center gap-3">
+        <img 
+          src="https://res.cloudinary.com/dmhabztbf/image/upload/v1766555144/e_summi_logo_t75m9e.png" 
+          alt="E-Summit Logo" 
+          className="h-14 lg:h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,200,255,0.3)]"
+        />
+        <span className="font-cinzel-decorative text-2xl lg:text-3xl font-bold tracking-wider text-winter-frost drop-shadow-[0_0_10px_rgba(0,200,255,0.4)]">
+          ESUMMIT<span className="text-winter-cyan">'26</span>
+        </span>
       </div>
 
       {/* Social Links - Right Side */}
-      <div className="hidden md:flex fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 flex-col items-center gap-6">
-        {/* Decorative line above */}
-        <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-winter-silver/30" />
-        
-        {socialLinks.map((social, index) => (
-          <a
-            key={social.name}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative p-2 text-winter-silver/70 hover:text-winter-frost transition-all duration-300"
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
-            {/* Icon */}
-            <div className="relative z-10 transition-transform duration-300 group-hover:scale-110">
-              {social.icon}
-            </div>
-            
-            {/* Glow effect on hover */}
-            <div className="absolute inset-0 bg-winter-cyan/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            {/* Tooltip */}
-            <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-winter-dark/90 backdrop-blur-sm rounded-lg border border-winter-silver/20 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap">
-              <span className="text-sm text-winter-frost">{social.name}</span>
-            </div>
-          </a>
-        ))}
-        
-        {/* Decorative line below */}
-        <div className="w-[1px] h-12 bg-gradient-to-b from-winter-silver/30 to-transparent" />
+      <div className={`hidden md:flex fixed right-4 top-1/2 -translate-y-1/2 z-40 transition-all duration-500 ${isFooterVisible ? 'opacity-0 translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}>
+        {/* Glass container */}
+        <div className="relative bg-winter-deep/40 backdrop-blur-xl border border-winter-cyan/20 rounded-2xl py-5 px-3 shadow-[0_0_30px_rgba(0,200,255,0.1)]">
+          {/* Decorative glow */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-winter-cyan/5 via-transparent to-winter-purple/5 pointer-events-none" />
+          
+          {/* Social links */}
+          <div className="relative flex flex-col items-center gap-4">
+            {socialLinks.map((social, index) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative p-2.5 rounded-xl text-winter-silver/70 hover:text-winter-frost hover:bg-white/5 transition-all duration-300"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Icon */}
+                <div className="relative z-10 transition-transform duration-300 group-hover:scale-110">
+                  {social.icon}
+                </div>
+                
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-winter-cyan/10 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Tooltip */}
+                <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-winter-deep/90 backdrop-blur-xl rounded-lg border border-winter-cyan/30 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-[0_0_15px_rgba(0,200,255,0.1)]">
+                  <span className="text-sm text-winter-frost font-medium">{social.name}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Aurora Effect */}

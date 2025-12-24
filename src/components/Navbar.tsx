@@ -14,6 +14,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +27,15 @@ const Navbar = () => {
           setActiveSection(section);
           break;
         }
+      }
+
+      // Check if footer is visible
+      const footer = document.querySelector('footer');
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        // Hide when footer is more than 50% visible
+        setIsFooterVisible(footerRect.top < windowHeight * 0.6);
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -49,47 +59,14 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Floating Vertical Navbar */}
-      <nav className="fixed left-0 top-0 h-screen z-50 hidden md:flex flex-col items-center py-6 px-4">
-        {/* Logo */}
-        <a
-          href="#home"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick('#home');
-          }}
-          className="mb-12 group relative"
-        >
-          {/* Logo - You can replace this with your actual logo */}
-          <div className="relative w-12 h-12 flex items-center justify-center">
-            <svg viewBox="0 0 48 48" className="w-full h-full text-winter-frost group-hover:text-winter-cyan transition-colors duration-300">
-              {/* Circuit-style logo */}
-              <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              <circle cx="24" cy="24" r="12" fill="none" stroke="currentColor" strokeWidth="1" />
-              <circle cx="24" cy="24" r="4" fill="currentColor" />
-              {/* Circuit lines */}
-              <line x1="24" y1="6" x2="24" y2="12" stroke="currentColor" strokeWidth="1.5" />
-              <line x1="24" y1="36" x2="24" y2="42" stroke="currentColor" strokeWidth="1.5" />
-              <line x1="6" y1="24" x2="12" y2="24" stroke="currentColor" strokeWidth="1.5" />
-              <line x1="36" y1="24" x2="42" y2="24" stroke="currentColor" strokeWidth="1.5" />
-              {/* Dots at ends */}
-              <circle cx="24" cy="6" r="2" fill="currentColor" />
-              <circle cx="24" cy="42" r="2" fill="currentColor" />
-              <circle cx="6" cy="24" r="2" fill="currentColor" />
-              <circle cx="42" cy="24" r="2" fill="currentColor" />
-            </svg>
-            {/* Glow effect on hover */}
-            <div className="absolute inset-0 bg-winter-cyan/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          </div>
-          {/* Logo text on hover */}
-          <div className={`absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap transition-all duration-300 ${
-            hoveredItem === 'logo' ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2 pointer-events-none'
-          }`}>
-            <span className="font-cinzel text-sm font-bold text-winter-frost">E-SUMMIT</span>
-          </div>
-        </a>
-
-        {/* Navigation Items */}
-        <div className="flex flex-col items-center space-y-6">
+      <nav className={`fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center transition-all duration-500 ${isFooterVisible ? 'opacity-0 -translate-x-full pointer-events-none' : 'opacity-100 translate-x-0'}`}>
+        {/* Glass container for nav items */}
+        <div className="relative bg-winter-deep/40 backdrop-blur-xl border border-winter-cyan/20 rounded-2xl py-6 px-3 shadow-[0_0_30px_rgba(0,200,255,0.1)]">
+          {/* Decorative glow */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-winter-cyan/5 via-transparent to-winter-purple/5 pointer-events-none" />
+          
+          {/* Navigation Items */}
+          <div className="relative flex flex-col items-center space-y-4">
           {navItems.map((item, index) => {
             const Icon = item.icon;
             const isActive = activeSection === item.href.slice(1);
@@ -97,13 +74,6 @@ const Navbar = () => {
             
             return (
               <div key={item.name} className="relative flex items-center">
-                {/* Decorative dot */}
-                <div 
-                  className={`absolute -left-3 w-1 h-1 rounded-full transition-all duration-300 ${
-                    isActive ? 'bg-winter-cyan shadow-[0_0_6px_hsl(187,100%,50%)]' : 'bg-winter-silver/30'
-                  }`}
-                />
-                
                 {/* Icon Button */}
                 <a
                   href={item.href}
@@ -113,20 +83,20 @@ const Navbar = () => {
                   }}
                   onMouseEnter={() => setHoveredItem(item.name)}
                   onMouseLeave={() => setHoveredItem(null)}
-                  className={`relative p-3 rounded-xl transition-all duration-300 group ${
+                  className={`relative p-2.5 rounded-xl transition-all duration-300 group ${
                     isActive 
-                      ? 'text-winter-cyan' 
-                      : 'text-winter-silver/70 hover:text-winter-frost'
+                      ? 'text-winter-cyan bg-winter-cyan/10' 
+                      : 'text-winter-silver/70 hover:text-winter-frost hover:bg-white/5'
                   }`}
                 >
                   {/* Icon */}
-                  <Icon className={`w-6 h-6 transition-all duration-300 ${
+                  <Icon className={`w-5 h-5 transition-all duration-300 ${
                     isActive ? 'drop-shadow-[0_0_8px_hsl(187,100%,50%)]' : ''
                   }`} />
                   
-                  {/* Subtle glow on active/hover */}
-                  {(isActive || isHovered) && (
-                    <div className="absolute inset-0 bg-winter-cyan/10 rounded-xl blur-sm -z-10" />
+                  {/* Active indicator dot */}
+                  {isActive && (
+                    <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-winter-cyan shadow-[0_0_8px_hsl(187,100%,50%)]" />
                   )}
                 </a>
 
@@ -147,11 +117,7 @@ const Navbar = () => {
               </div>
             );
           })}
-        </div>
-
-        {/* Bottom decorative element */}
-        <div className="mt-auto flex flex-col items-center space-y-2">
-          <div className="w-[1px] h-16 bg-gradient-to-b from-winter-cyan/40 to-transparent" />
+          </div>
         </div>
       </nav>
 
@@ -169,20 +135,14 @@ const Navbar = () => {
                 }}
                 className="flex items-center gap-2"
               >
-                <svg viewBox="0 0 48 48" className="w-8 h-8 text-winter-frost">
-                  <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                  <circle cx="24" cy="24" r="12" fill="none" stroke="currentColor" strokeWidth="1" />
-                  <circle cx="24" cy="24" r="4" fill="currentColor" />
-                  <line x1="24" y1="6" x2="24" y2="12" stroke="currentColor" strokeWidth="1.5" />
-                  <line x1="24" y1="36" x2="24" y2="42" stroke="currentColor" strokeWidth="1.5" />
-                  <line x1="6" y1="24" x2="12" y2="24" stroke="currentColor" strokeWidth="1.5" />
-                  <line x1="36" y1="24" x2="42" y2="24" stroke="currentColor" strokeWidth="1.5" />
-                  <circle cx="24" cy="6" r="2" fill="currentColor" />
-                  <circle cx="24" cy="42" r="2" fill="currentColor" />
-                  <circle cx="6" cy="24" r="2" fill="currentColor" />
-                  <circle cx="42" cy="24" r="2" fill="currentColor" />
-                </svg>
-                <span className="font-cinzel text-sm font-bold frost-text">E-SUMMIT</span>
+                <img 
+                  src="https://res.cloudinary.com/dmhabztbf/image/upload/v1766555144/e_summi_logo_t75m9e.png" 
+                  alt="E-Summit Logo" 
+                  className="h-9 w-auto object-contain"
+                />
+                <span className="font-cinzel-decorative text-base font-bold tracking-wide text-winter-frost">
+                  ESUMMIT<span className="text-winter-cyan">'26</span>
+                </span>
               </a>
 
               {/* Mobile Menu Button */}
