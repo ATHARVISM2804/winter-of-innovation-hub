@@ -5,6 +5,7 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import EventsSection from '@/components/EventsSection';
 import TeamSection from '@/components/TeamSection';
+import PastSpeakersSection from '@/components/PastSpeakersSection';
 import SponsorsSection from '@/components/SponsorsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -151,6 +152,14 @@ const Index = () => {
           <div className="relative h-32 overflow-hidden">
             <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-winter-cyan/30 to-transparent" />
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-winter-cyan/30 text-xl">✦</div>
+          </div>
+          
+          <PastSpeakersSection />
+          
+          {/* Section Divider */}
+          <div className="relative h-32 overflow-hidden">
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-winter-cyan/30 to-transparent" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-winter-cyan/30 text-xl">🎤</div>
           </div>
           
           <SponsorsSection />

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, Info, Calendar, Users, Handshake, Mail, Trophy, MessageCircleQuestion } from 'lucide-react';
+import { Menu, X, Home, Info, Calendar, Users, Handshake, Mail, Trophy, MessageCircleQuestion, Mic2 } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', href: '#home', icon: Home },
   { name: 'About', href: '#about', icon: Info },
   { name: 'Events', href: '#events', icon: Calendar },
   { name: 'Team', href: '#team', icon: Users },
+  { name: 'Speakers', href: '#speakers', icon: Mic2 },
   { name: 'Sponsors', href: '#sponsors', icon: Handshake },
   { name: 'Contact', href: '#contact', icon: Mail },
 ];
