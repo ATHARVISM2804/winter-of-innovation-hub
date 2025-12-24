@@ -184,14 +184,14 @@ const HeroSection = () => {
               <div className="p-2 rounded-lg bg-winter-cyan/10 border border-winter-cyan/30 group-hover:bg-winter-cyan/20 group-hover:border-winter-cyan/50 transition-all duration-300">
                 <Calendar className="w-5 h-5 text-winter-cyan" />
               </div>
-              <span className="text-base md:text-lg font-rajdhani">Coming February 2026</span>
+              <span className="text-base md:text-lg font-rajdhani">30 Jan - 1 Feb</span>
             </div>
             <div className="hidden sm:block w-px h-8 bg-gradient-to-b from-transparent via-winter-cyan/50 to-transparent" />
             <div className="flex items-center gap-3 text-winter-silver group">
               <div className="p-2 rounded-lg bg-winter-cyan/10 border border-winter-cyan/30 group-hover:bg-winter-cyan/20 group-hover:border-winter-cyan/50 transition-all duration-300">
                 <MapPin className="w-5 h-5 text-winter-cyan" />
               </div>
-              <span className="text-base md:text-lg font-rajdhani">NIT Hamirpur</span>
+              <span className="text-base md:text-lg font-rajdhani">National Institue of Technology, Hamirpur</span>
             </div>
           </div>
 
@@ -206,7 +206,7 @@ const HeroSection = () => {
             </button>
             <button className="group btn-secondary font-rajdhani text-lg px-10 py-4 hover:scale-105 transition-all duration-300">
               <span className="flex items-center gap-2">
-                Explore More
+                Ignite Now
                 <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </span>
             </button>
@@ -214,7 +214,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
+      {/* Enhanced Scroll Indicator
       <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="flex flex-col items-center gap-2">
           <span className="text-winter-silver/50 text-xs font-rajdhani tracking-widest uppercase">Scroll</span>
@@ -222,7 +222,7 @@ const HeroSection = () => {
             <div className="w-1.5 h-3 bg-winter-cyan rounded-full animate-bounce" />
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
