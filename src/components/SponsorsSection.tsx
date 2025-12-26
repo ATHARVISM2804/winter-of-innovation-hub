@@ -1,13 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { Sparkles, Star, Diamond, HandshakeIcon, ArrowRight } from 'lucide-react';
 
+// 7 platinum, 6 gold sponsors
 const sponsors = [
+  // Platinum (7)
   { name: 'TechCorp', tier: 'platinum', logo: '' },
   { name: 'InnovateTech', tier: 'platinum', logo: '' },
+  { name: 'AlphaSoft', tier: 'platinum', logo: '' },
+  { name: 'QuantumLeap', tier: 'platinum', logo: '' },
+  { name: 'NextGen', tier: 'platinum', logo: '' },
+  { name: 'BluePeak', tier: 'platinum', logo: '' },
+  { name: 'VisionaryX', tier: 'platinum', logo: '' },
+  // Gold (6)
   { name: 'StartupHub', tier: 'gold', logo: '' },
   { name: 'VentureCap', tier: 'gold', logo: '' },
-  { name: 'EduTech', tier: 'silver', logo: '' },
-  { name: 'CloudBase', tier: 'silver', logo: '' },
+  { name: 'EduTech', tier: 'gold', logo: '' },
+  { name: 'CloudBase', tier: 'gold', logo: '' },
+  { name: 'GreenSpark', tier: 'gold', logo: '' },
+  { name: 'FinEdge', tier: 'gold', logo: '' },
 ];
 
 const tierConfig = {
@@ -17,6 +27,7 @@ const tierConfig = {
     textColor: 'text-slate-200',
     borderColor: 'border-slate-300/40',
     glowColor: 'shadow-slate-200/20',
+    animation: 'marquee-left',
   },
   gold: {
     icon: Star,
@@ -24,13 +35,7 @@ const tierConfig = {
     textColor: 'text-amber-300',
     borderColor: 'border-amber-400/40',
     glowColor: 'shadow-amber-300/20',
-  },
-  silver: {
-    icon: Sparkles,
-    gradient: 'from-gray-300 via-gray-200 to-gray-400',
-    textColor: 'text-gray-300',
-    borderColor: 'border-gray-400/40',
-    glowColor: 'shadow-gray-300/20',
+    animation: 'marquee-right',
   },
 };
 
@@ -53,6 +58,42 @@ const SponsorsSection = () => {
     }
 
     return () => observer.disconnect();
+  }, []);
+
+  // Marquee animation CSS (inject once)
+  useEffect(() => {
+    const styleId = 'sponsor-marquee-style';
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement('style');
+      style.id = styleId;
+      style.innerHTML = `
+        @keyframes marquee-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        .marquee-track {
+          display: flex;
+          width: max-content;
+        }
+        .marquee-left {
+          animation: marquee-left 18s linear infinite;
+        }
+        .marquee-right {
+          animation: marquee-right 18s linear infinite;
+          flex-direction: row-reverse;
+        }
+        @media (max-width: 768px) {
+          .marquee-left, .marquee-right {
+            animation-duration: 10s;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
   }, []);
 
   return (
@@ -96,14 +137,16 @@ const SponsorsSection = () => {
         </div>
 
         {/* Sponsor Tiers */}
-        {(['platinum', 'gold', 'silver'] as const).map((tier, tierIndex) => {
+        {(['platinum', 'gold'] as const).map((tier, tierIndex) => {
           const tierSponsors = sponsors.filter(s => s.tier === tier);
           const config = tierConfig[tier];
           const TierIcon = config.icon;
 
           if (tierSponsors.length === 0) return null;
 
-          // Set grid-cols-2 for all tiers for alignment, and center the grid
+          // Duplicate sponsors for seamless loop
+          const sponsorsLoop = [...tierSponsors, ...tierSponsors];
+
           return (
             <div key={tier} className={`mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${200 + tierIndex * 150}ms` }}>
               {/* Tier Label */}
@@ -117,14 +160,18 @@ const SponsorsSection = () => {
                 <div className={`h-px w-12 bg-gradient-to-l from-transparent to-current ${config.textColor} opacity-40`} />
               </div>
 
-              {/* Sponsors Grid */}
-              <div className="flex justify-center">
-                <div className="grid grid-cols-2 gap-6 w-full max-w-2xl">
-                  {tierSponsors.map((sponsor, index) => (
+              {/* Sponsors Marquee */}
+              <div className="overflow-x-hidden w-full">
+                <div
+                  className={`marquee-track ${config.animation} py-2`}
+                  style={{
+                    width: 'max-content',
+                  }}
+                >
+                  {sponsorsLoop.map((sponsor, index) => (
                     <div
-                      key={sponsor.name}
-                      className={`group frosted-glass mystic-card rounded-xl p-8 ${config.borderColor} border transition-all duration-500 hover:translate-y-[-6px] hover:${config.glowColor} hover:shadow-lg cursor-pointer`}
-                      style={{ transitionDelay: `${300 + tierIndex * 150 + index * 100}ms` }}
+                      key={sponsor.name + index}
+                      className={`group frosted-glass mystic-card rounded-xl p-8 ${config.borderColor} border transition-all duration-500 hover:translate-y-[-6px] hover:${config.glowColor} hover:shadow-lg cursor-pointer mx-4 min-w-[220px] max-w-[220px] flex-shrink-0`}
                     >
                       <div className="flex flex-col items-center justify-center h-full">
                         {/* Logo Placeholder */}
@@ -133,12 +180,10 @@ const SponsorsSection = () => {
                             {sponsor.name.charAt(0)}
                           </span>
                         </div>
-                        
                         {/* Sponsor Name */}
                         <span className={`font-cinzel text-lg font-semibold text-winter-frost/80 group-hover:text-winter-frost transition-colors duration-300 text-center`}>
                           {sponsor.name}
                         </span>
-                        
                         {/* Tier Badge */}
                         <div className={`mt-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r ${config.gradient} bg-opacity-10 border ${config.borderColor}`}>
                           <TierIcon className={`w-3 h-3 ${config.textColor}`} />
