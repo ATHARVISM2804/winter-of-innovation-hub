@@ -4,20 +4,20 @@ import { Sparkles, Star, Diamond, HandshakeIcon, ArrowRight } from 'lucide-react
 // 7 platinum, 6 gold sponsors with real names and logos (if available)
 const sponsors = [
   // Platinum (7)
-  { name: 'Alchemy', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/alchemy_logo.png' },
-  { name: 'StockGro', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/stockgro_logo.png' },
-  { name: 'Top One Percent', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/top_one_percent_logo.png' },
-  { name: 'Oculosense', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/oculosense_logo.png' },
-  { name: 'SJVN', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/sjvn_logo.png' },
-  { name: 'Bull', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/bull_logo.png' },
-  { name: 'Unstop', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/unstopp_logo.png' },
+  { name: 'Alchemy', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766766912/alchemy_pu9cls.png' },
+  { name: 'StockGro', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766766912/stockgro_dsxyn4.png' },
+  { name: 'Top One Percent', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766766913/top_one_percent_y3mzpf.png' },
+  { name: 'Oculosense', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766766913/oculuscene_ypvn2j.png' },
+  { name: 'SJVN', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766766912/sjvn_cdkrfa.png' },
+  { name: 'Bull', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766766913/cow_hm9lzl.png' },
+  { name: 'Unstop', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766766912/unstop_a740fh.png' },
   // Gold (6)
-  { name: 'Devfolio', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/devfolio_logo.png' },
-  { name: "Domino's", tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/dominos_logo.png' },
-  { name: 'abhibus', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/abhibus_logo.png' },
-  { name: 'Aspire IIT & Medical', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/aspire_logo.png' },
-  { name: 'PVR', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/pvr_logo.png' },
-  { name: 'MakeMyTrip', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/makemytrip_logo.png' },
+  { name: 'Devfolio', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766768034/devfolio_lzoth0.png' },
+  { name: "Domino's", tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766768034/dominos_i5fbjn.webp' },
+  { name: 'abhibus', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766768035/abhi_bus_hvgjuf.png' },
+  { name: 'Aspire IIT & Medical', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766768034/Aspire_rqutku.png' },
+  { name: 'PVR', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766768034/PVR-Logo_viaufr.jpg' },
+  { name: 'MakeMyTrip', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766768033/make_my_trip_gec20q.png' },
 ];
 
 const tierConfig = {
@@ -176,29 +176,33 @@ const SponsorsSection = () => {
                       <div className="flex flex-col items-center justify-center h-full">
                         {/* Logo Placeholder or Real Logo */}
                         {sponsor.logo ? (
-                          <div className="w-full h-20 flex items-center justify-center mb-4">
+                          <div className="w-full flex items-center justify-center mb-6">
                             <img
                               src={sponsor.logo}
                               alt={sponsor.name}
-                              className="max-h-16 max-w-[150px] object-contain"
-                              style={{ background: 'white', borderRadius: 8, padding: 4 }}
+                              className="max-h-24 max-w-[180px] object-contain drop-shadow-lg"
+                              style={{ background: 'white', borderRadius: 12, padding: 8 }}
                             />
                           </div>
                         ) : (
-                          <div className={`w-full h-20 rounded-lg bg-gradient-to-br ${config.gradient} opacity-10 group-hover:opacity-20 flex items-center justify-center mb-4 transition-all duration-300`}>
-                            <span className={`font-cinzel text-2xl font-bold ${config.textColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
+                          <div className={`w-full h-24 rounded-lg bg-gradient-to-br ${config.gradient} opacity-10 group-hover:opacity-20 flex items-center justify-center mb-6 transition-all duration-300`}>
+                            <span className={`font-cinzel text-3xl font-bold ${config.textColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
                               {sponsor.name.charAt(0)}
                             </span>
                           </div>
                         )}
                         {/* Sponsor Name */}
-                        <span className={`font-cinzel text-lg font-semibold text-winter-frost/80 group-hover:text-winter-frost transition-colors duration-300 text-center`}>
+                        <span className={`font-cinzel text-lg font-semibold text-winter-frost/80 group-hover:text-winter-frost transition-colors duration-300 text-center mb-2`}>
                           {sponsor.name}
                         </span>
-                        {/* Tier Badge */}
-                        <div className={`mt-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r ${config.gradient} bg-opacity-10 border ${config.borderColor}`}>
-                          <TierIcon className={`w-3 h-3 ${config.textColor}`} />
-                          <span className={`text-xs font-rajdhani uppercase tracking-wider ${config.textColor}`}>
+                        {/* Custom Badge */}
+                        <div className={`mt-1 flex items-center gap-2 px-4 py-1 rounded-full bg-opacity-20 border-0 shadow-md
+                          ${tier === 'platinum'
+                            ? 'bg-gradient-to-r from-slate-200/20 to-slate-400/10'
+                            : 'bg-gradient-to-r from-amber-300/20 to-yellow-400/10'}
+                        `}>
+                          <TierIcon className={`w-4 h-4 ${config.textColor}`} />
+                          <span className={`text-xs font-rajdhani uppercase tracking-wider ${config.textColor} font-bold`}>
                             {tier}
                           </span>
                         </div>
