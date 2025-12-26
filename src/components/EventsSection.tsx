@@ -1,33 +1,79 @@
 import { useEffect, useRef, useState } from 'react';
 import { Lightbulb, Users, Wrench, Sparkles, ArrowRight, Star } from 'lucide-react';
 
+// New events array with image placeholders
 const events = [
   {
-    icon: Lightbulb,
-    title: 'Startup Pitch Competition',
+    title: 'Find the Bug',
     description:
-      'Present your innovative ideas to a panel of investors and industry experts. Compete for funding, mentorship, and the chance to turn your vision into reality.',
-    highlight: '₹5L Prize Pool',
+      'Test your debugging skills and spot the bugs in challenging code snippets. Compete with the best to claim the title of Bug Hunter!',
+    highlight: 'Coding Challenge',
+    image: 'https://assets.unstop.com/images/events/placeholder-event.png', // Replace with actual image
     gradient: 'from-amber-500/20 via-orange-500/10 to-transparent',
     accentColor: 'text-amber-400',
   },
   {
-    icon: Users,
-    title: 'Leadership Summit',
+    title: 'Virtual Stock Market',
     description:
-      'Interactive sessions with successful entrepreneurs and business leaders. Gain insights from those who have walked the path and learn the secrets of building successful ventures.',
-    highlight: '20+ Speakers',
+      'Experience the thrill of trading in a simulated stock market. Make smart investments and climb the leaderboard!',
+    highlight: 'Simulated Trading',
+    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
     gradient: 'from-winter-cyan/20 via-teal-500/10 to-transparent',
     accentColor: 'text-winter-cyan',
   },
   {
-    icon: Wrench,
-    title: 'Innovation Workshops',
+    title: 'Reverse Pitch',
     description:
-      'Hands-on workshops covering emerging technologies, business strategies, and entrepreneurial skills. From AI to blockchain, from marketing to fundraising.',
-    highlight: '15+ Workshops',
+      'Flip the script! Investors pitch their problems and participants propose innovative solutions.',
+    highlight: 'Investor Meets',
+    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
     gradient: 'from-purple-500/20 via-violet-500/10 to-transparent',
     accentColor: 'text-purple-400',
+  },
+  {
+    title: 'Sell Your Idea',
+    description:
+      'Pitch your creative ideas to a panel and get instant feedback. Convince the judges and win exciting prizes!',
+    highlight: 'Pitch Event',
+    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    gradient: 'from-pink-500/20 via-red-500/10 to-transparent',
+    accentColor: 'text-pink-400',
+  },
+  {
+    title: "Creator's Summit",
+    description:
+      'A gathering of top creators sharing their journeys, tips, and insights. Network and learn from the best in the business.',
+    highlight: 'Influencer Talks',
+    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    gradient: 'from-green-500/20 via-emerald-500/10 to-transparent',
+    accentColor: 'text-green-400',
+  },
+  {
+    title: 'Venturo',
+    description:
+      'Showcase your entrepreneurial spirit and compete in a series of startup challenges.',
+    highlight: 'Startup Challenge',
+    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    gradient: 'from-blue-500/20 via-sky-500/10 to-transparent',
+    accentColor: 'text-blue-400',
+  },
+  {
+    title: 'Pannel Discussion',
+    description:
+      'Engage with industry leaders in thought-provoking discussions on trending topics.',
+    highlight: 'Expert Panel',
+    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    gradient: 'from-yellow-500/20 via-amber-500/10 to-transparent',
+    accentColor: 'text-yellow-400',
+  },
+  {
+    title: 'IPL Auction',
+    description:
+      'Experience the excitement of an IPL-style auction. Build your dream team and strategize to win!',
+    highlight: 'Team Auction',
+    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    gradient: 'from-indigo-500/20 via-blue-500/10 to-transparent',
+    accentColor: 'text-indigo-400',
   },
 ];
 
@@ -92,14 +138,14 @@ const EventsSection = () => {
         </div>
 
         {/* Events Grid */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {events.map((event, index) => (
             <div
               key={event.title}
               className={`group relative transition-all duration-700 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
-              style={{ transitionDelay: isVisible ? `${200 + index * 150}ms` : '0ms' }}
+              style={{ transitionDelay: isVisible ? `${200 + index * 100}ms` : '0ms' }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -117,11 +163,13 @@ const EventsSection = () => {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-winter-cyan/10 to-winter-purple/10 border border-winter-cyan/30 flex items-center justify-center mb-8 group-hover:border-winter-cyan/60 transition-all duration-500 group-hover:animate-border-glow">
-                    <event.icon className={`w-10 h-10 ${event.accentColor} transition-all duration-300 group-hover:scale-110`} />
-                    {/* Icon Glow */}
-                    <div className="absolute inset-0 bg-winter-cyan/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Event Image */}
+                  <div className="w-full h-44 mb-6 rounded-xl overflow-hidden bg-winter-cyan/10 flex items-center justify-center">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="object-cover w-full h-full"
+                    />
                   </div>
 
                   {/* Title */}

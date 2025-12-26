@@ -184,7 +184,7 @@ const HeroSection = () => {
               <div className="p-2 rounded-lg bg-winter-cyan/10 border border-winter-cyan/30 group-hover:bg-winter-cyan/20 group-hover:border-winter-cyan/50 transition-all duration-300">
                 <Calendar className="w-5 h-5 text-winter-cyan" />
               </div>
-              <span className="text-base md:text-lg font-rajdhani">Coming February 2026</span>
+              <span className="text-base md:text-lg font-rajdhani">Coming January 2026</span>
             </div>
             <div className="hidden sm:block w-px h-8 bg-gradient-to-b from-transparent via-winter-cyan/50 to-transparent" />
             <div className="flex items-center gap-3 text-winter-silver group">
