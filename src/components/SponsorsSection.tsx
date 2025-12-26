@@ -42,6 +42,7 @@ const tierConfig = {
 const SponsorsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [pausedTier, setPausedTier] = useState<string | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,6 +86,9 @@ const SponsorsSection = () => {
         .marquee-right {
           animation: marquee-right 18s linear infinite;
           flex-direction: row-reverse;
+        }
+        .marquee-paused {
+          animation-play-state: paused !important;
         }
         @media (max-width: 768px) {
           .marquee-left, .marquee-right {
@@ -147,6 +151,9 @@ const SponsorsSection = () => {
           // Duplicate sponsors for seamless loop
           const sponsorsLoop = [...tierSponsors, ...tierSponsors];
 
+          // Pause marquee if hovered
+          const marqueeClass = `${config.animation} marquee-track${pausedTier === tier ? ' marquee-paused' : ''}`;
+
           return (
             <div key={tier} className={`mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${200 + tierIndex * 150}ms` }}>
               {/* Tier Label */}
@@ -163,10 +170,12 @@ const SponsorsSection = () => {
               {/* Sponsors Marquee */}
               <div className="overflow-x-hidden w-full">
                 <div
-                  className={`marquee-track ${config.animation} py-2`}
+                  className={marqueeClass}
                   style={{
                     width: 'max-content',
                   }}
+                  onMouseEnter={() => setPausedTier(tier)}
+                  onMouseLeave={() => setPausedTier(null)}
                 >
                   {sponsorsLoop.map((sponsor, index) => (
                     <div
