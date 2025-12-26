@@ -1,23 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { Sparkles, Star, Diamond, HandshakeIcon, ArrowRight } from 'lucide-react';
 
-// 7 platinum, 6 gold sponsors
+// 7 platinum, 6 gold sponsors with real names and logos (if available)
 const sponsors = [
   // Platinum (7)
-  { name: 'TechCorp', tier: 'platinum', logo: '' },
-  { name: 'InnovateTech', tier: 'platinum', logo: '' },
-  { name: 'AlphaSoft', tier: 'platinum', logo: '' },
-  { name: 'QuantumLeap', tier: 'platinum', logo: '' },
-  { name: 'NextGen', tier: 'platinum', logo: '' },
-  { name: 'BluePeak', tier: 'platinum', logo: '' },
-  { name: 'VisionaryX', tier: 'platinum', logo: '' },
+  { name: 'Alchemy', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/alchemy_logo.png' },
+  { name: 'StockGro', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/stockgro_logo.png' },
+  { name: 'Top One Percent', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/top_one_percent_logo.png' },
+  { name: 'Oculosense', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/oculosense_logo.png' },
+  { name: 'SJVN', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/sjvn_logo.png' },
+  { name: 'Bull', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/bull_logo.png' },
+  { name: 'Unstop', tier: 'platinum', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/unstopp_logo.png' },
   // Gold (6)
-  { name: 'StartupHub', tier: 'gold', logo: '' },
-  { name: 'VentureCap', tier: 'gold', logo: '' },
-  { name: 'EduTech', tier: 'gold', logo: '' },
-  { name: 'CloudBase', tier: 'gold', logo: '' },
-  { name: 'GreenSpark', tier: 'gold', logo: '' },
-  { name: 'FinEdge', tier: 'gold', logo: '' },
+  { name: 'Devfolio', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/devfolio_logo.png' },
+  { name: "Domino's", tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/dominos_logo.png' },
+  { name: 'abhibus', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/abhibus_logo.png' },
+  { name: 'Aspire IIT & Medical', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/aspire_logo.png' },
+  { name: 'PVR', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/pvr_logo.png' },
+  { name: 'MakeMyTrip', tier: 'gold', logo: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1718038997/makemytrip_logo.png' },
 ];
 
 const tierConfig = {
@@ -174,12 +174,23 @@ const SponsorsSection = () => {
                       className={`group frosted-glass mystic-card rounded-xl p-8 ${config.borderColor} border transition-all duration-500 hover:translate-y-[-6px] hover:${config.glowColor} hover:shadow-lg cursor-pointer mx-4 min-w-[220px] max-w-[220px] flex-shrink-0`}
                     >
                       <div className="flex flex-col items-center justify-center h-full">
-                        {/* Logo Placeholder */}
-                        <div className={`w-full h-20 rounded-lg bg-gradient-to-br ${config.gradient} opacity-10 group-hover:opacity-20 flex items-center justify-center mb-4 transition-all duration-300`}>
-                          <span className={`font-cinzel text-2xl font-bold ${config.textColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
-                            {sponsor.name.charAt(0)}
-                          </span>
-                        </div>
+                        {/* Logo Placeholder or Real Logo */}
+                        {sponsor.logo ? (
+                          <div className="w-full h-20 flex items-center justify-center mb-4">
+                            <img
+                              src={sponsor.logo}
+                              alt={sponsor.name}
+                              className="max-h-16 max-w-[150px] object-contain"
+                              style={{ background: 'white', borderRadius: 8, padding: 4 }}
+                            />
+                          </div>
+                        ) : (
+                          <div className={`w-full h-20 rounded-lg bg-gradient-to-br ${config.gradient} opacity-10 group-hover:opacity-20 flex items-center justify-center mb-4 transition-all duration-300`}>
+                            <span className={`font-cinzel text-2xl font-bold ${config.textColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
+                              {sponsor.name.charAt(0)}
+                            </span>
+                          </div>
+                        )}
                         {/* Sponsor Name */}
                         <span className={`font-cinzel text-lg font-semibold text-winter-frost/80 group-hover:text-winter-frost transition-colors duration-300 text-center`}>
                           {sponsor.name}
