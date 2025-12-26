@@ -103,6 +103,7 @@ const SponsorsSection = () => {
 
           if (tierSponsors.length === 0) return null;
 
+          // Set grid-cols-2 for all tiers for alignment, and center the grid
           return (
             <div key={tier} className={`mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${200 + tierIndex * 150}ms` }}>
               {/* Tier Label */}
@@ -117,36 +118,38 @@ const SponsorsSection = () => {
               </div>
 
               {/* Sponsors Grid */}
-              <div className={`grid ${tier === 'platinum' ? 'grid-cols-2 max-w-2xl' : 'grid-cols-2 md:grid-cols-3 max-w-4xl'} gap-6 mx-auto`}>
-                {tierSponsors.map((sponsor, index) => (
-                  <div
-                    key={sponsor.name}
-                    className={`group frosted-glass mystic-card rounded-xl p-8 ${config.borderColor} border transition-all duration-500 hover:translate-y-[-6px] hover:${config.glowColor} hover:shadow-lg cursor-pointer`}
-                    style={{ transitionDelay: `${300 + tierIndex * 150 + index * 100}ms` }}
-                  >
-                    <div className="flex flex-col items-center justify-center h-full">
-                      {/* Logo Placeholder */}
-                      <div className={`w-full h-20 rounded-lg bg-gradient-to-br ${config.gradient} opacity-10 group-hover:opacity-20 flex items-center justify-center mb-4 transition-all duration-300`}>
-                        <span className={`font-cinzel text-2xl font-bold ${config.textColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
-                          {sponsor.name.charAt(0)}
+              <div className="flex justify-center">
+                <div className="grid grid-cols-2 gap-6 w-full max-w-2xl">
+                  {tierSponsors.map((sponsor, index) => (
+                    <div
+                      key={sponsor.name}
+                      className={`group frosted-glass mystic-card rounded-xl p-8 ${config.borderColor} border transition-all duration-500 hover:translate-y-[-6px] hover:${config.glowColor} hover:shadow-lg cursor-pointer`}
+                      style={{ transitionDelay: `${300 + tierIndex * 150 + index * 100}ms` }}
+                    >
+                      <div className="flex flex-col items-center justify-center h-full">
+                        {/* Logo Placeholder */}
+                        <div className={`w-full h-20 rounded-lg bg-gradient-to-br ${config.gradient} opacity-10 group-hover:opacity-20 flex items-center justify-center mb-4 transition-all duration-300`}>
+                          <span className={`font-cinzel text-2xl font-bold ${config.textColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
+                            {sponsor.name.charAt(0)}
+                          </span>
+                        </div>
+                        
+                        {/* Sponsor Name */}
+                        <span className={`font-cinzel text-lg font-semibold text-winter-frost/80 group-hover:text-winter-frost transition-colors duration-300 text-center`}>
+                          {sponsor.name}
                         </span>
-                      </div>
-                      
-                      {/* Sponsor Name */}
-                      <span className={`font-cinzel text-lg font-semibold text-winter-frost/80 group-hover:text-winter-frost transition-colors duration-300 text-center`}>
-                        {sponsor.name}
-                      </span>
-                      
-                      {/* Tier Badge */}
-                      <div className={`mt-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r ${config.gradient} bg-opacity-10 border ${config.borderColor}`}>
-                        <TierIcon className={`w-3 h-3 ${config.textColor}`} />
-                        <span className={`text-xs font-rajdhani uppercase tracking-wider ${config.textColor}`}>
-                          {tier}
-                        </span>
+                        
+                        {/* Tier Badge */}
+                        <div className={`mt-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r ${config.gradient} bg-opacity-10 border ${config.borderColor}`}>
+                          <TierIcon className={`w-3 h-3 ${config.textColor}`} />
+                          <span className={`text-xs font-rajdhani uppercase tracking-wider ${config.textColor}`}>
+                            {tier}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           );

@@ -146,8 +146,7 @@ const PastSpeakersSection = () => {
 							onMouseLeave={() => setHoveredIndex(null)}
 						>
 							{/* Card */}
-							<div className="relative h-full frosted-glass mystic-card rounded-2xl p-8 border border-winter-cyan/10 hover:border-winter-cyan/30 transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_60px_-15px_rgba(0,200,255,0.15)] flex flex-col items-center">
-								
+							<div className="relative h-full frosted-glass mystic-card rounded-2xl px-6 py-8 border border-winter-cyan/10 hover:border-winter-cyan/30 transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_60px_-15px_rgba(0,200,255,0.15)] flex flex-col items-center max-w-xs mx-auto">
 								{/* Year Badge */}
 								<div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-winter-cyan/10 border border-winter-cyan/30">
 									<span className="font-rajdhani text-xs text-winter-cyan font-medium">
@@ -156,7 +155,7 @@ const PastSpeakersSection = () => {
 								</div>
 
 								{/* Speaker Image */}
-								<div className="relative w-48 h-48 mb-8">
+								<div className="relative w-40 h-40 mb-6">
 									<div className="absolute inset-0 rounded-full bg-gradient-to-br from-winter-cyan/20 to-purple-500/20 animate-pulse" />
 									<div className="relative w-full h-full rounded-full bg-winter-dark/80 border-4 border-winter-cyan/40 flex items-center justify-center overflow-hidden group-hover:border-winter-cyan/70 transition-all duration-300 shadow-lg">
 										{speaker.image ? (
@@ -180,10 +179,10 @@ const PastSpeakersSection = () => {
 
 								{/* Speaker Info */}
 								<div className="text-center w-full">
-									<h3 className="font-cinzel text-2xl font-semibold text-winter-frost mb-2 group-hover:text-winter-cyan transition-colors duration-300">
+									<h3 className="font-cinzel text-xl font-semibold text-winter-frost mb-2 group-hover:text-winter-cyan transition-colors duration-300">
 										{speaker.name}
 									</h3>
-									<p className="font-rajdhani text-base text-winter-cyan/80 mb-4">
+									<p className="font-rajdhani text-sm text-winter-cyan/80 mb-4 whitespace-normal break-words">
 										{speaker.title}
 									</p>
 									
