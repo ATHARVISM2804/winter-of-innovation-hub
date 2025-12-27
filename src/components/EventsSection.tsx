@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { Lightbulb, Users, Wrench, Sparkles, ArrowRight, Star } from 'lucide-react';
 
-// New events array with image placeholders
+// New events array with actual images
 const events = [
   {
     title: 'Find the Bug',
     description:
       'Test your debugging skills and spot the bugs in challenging code snippets. Compete with the best to claim the title of Bug Hunter!',
     highlight: 'Coding Challenge',
-    image: 'https://assets.unstop.com/images/events/placeholder-event.png', // Replace with actual image
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/Find_the_bug_n8ewtk.png',
     gradient: 'from-amber-500/20 via-orange-500/10 to-transparent',
     accentColor: 'text-amber-400',
   },
@@ -17,7 +17,7 @@ const events = [
     description:
       'Experience the thrill of trading in a simulated stock market. Make smart investments and climb the leaderboard!',
     highlight: 'Simulated Trading',
-    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/virtual_stock_market_anf15m.png',
     gradient: 'from-winter-cyan/20 via-teal-500/10 to-transparent',
     accentColor: 'text-winter-cyan',
   },
@@ -26,7 +26,7 @@ const events = [
     description:
       'Flip the script! Investors pitch their problems and participants propose innovative solutions.',
     highlight: 'Investor Meets',
-    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/reverse_pitch_qso2k2.png',
     gradient: 'from-purple-500/20 via-violet-500/10 to-transparent',
     accentColor: 'text-purple-400',
   },
@@ -35,7 +35,7 @@ const events = [
     description:
       'Pitch your creative ideas to a panel and get instant feedback. Convince the judges and win exciting prizes!',
     highlight: 'Pitch Event',
-    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855855/sell_your_idea_w05wbs.png',
     gradient: 'from-pink-500/20 via-red-500/10 to-transparent',
     accentColor: 'text-pink-400',
   },
@@ -44,7 +44,7 @@ const events = [
     description:
       'A gathering of top creators sharing their journeys, tips, and insights. Network and learn from the best in the business.',
     highlight: 'Influencer Talks',
-    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855854/Creator_Summit_truewk.png',
     gradient: 'from-green-500/20 via-emerald-500/10 to-transparent',
     accentColor: 'text-green-400',
   },
@@ -53,7 +53,7 @@ const events = [
     description:
       'Showcase your entrepreneurial spirit and compete in a series of startup challenges.',
     highlight: 'Startup Challenge',
-    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855854/Venturo_bwwipc.png',
     gradient: 'from-blue-500/20 via-sky-500/10 to-transparent',
     accentColor: 'text-blue-400',
   },
@@ -62,7 +62,7 @@ const events = [
     description:
       'Engage with industry leaders in thought-provoking discussions on trending topics.',
     highlight: 'Expert Panel',
-    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/pannel_discussion_bqv6id.png',
     gradient: 'from-yellow-500/20 via-amber-500/10 to-transparent',
     accentColor: 'text-yellow-400',
   },
@@ -71,7 +71,7 @@ const events = [
     description:
       'Experience the excitement of an IPL-style auction. Build your dream team and strategize to win!',
     highlight: 'Team Auction',
-    image: 'https://assets.unstop.com/images/events/placeholder-event.png',
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/ipl_auction_fsqx24.png',
     gradient: 'from-indigo-500/20 via-blue-500/10 to-transparent',
     accentColor: 'text-indigo-400',
   },
