@@ -255,6 +255,22 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
+      <div className="container mx-auto px-4 mt-12">
+        <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden border border-winter-cyan/10">
+          <iframe
+            title="NIT Hamirpur Map"
+            src="https://www.google.com/maps?q=NIT+Hamirpur+Himachal+Pradesh+177005&output=embed"
+            width="100%"
+            height="450"
+            className="w-full h-80 md:h-96 border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <div className="p-4 bg-winter-dark/60 text-winter-silver/80 text-sm">
+            Address: NIT Hamirpur Himachal Pradesh 177005
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
