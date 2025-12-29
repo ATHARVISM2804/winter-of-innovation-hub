@@ -138,13 +138,13 @@ const ContactSection = () => {
               <p className="text-winter-silver/60 text-sm font-rajdhani uppercase tracking-wider mb-6">Follow Us</p>
               <div className="flex gap-4">
                 {[
-                  { icon: Linkedin, label: 'LinkedIn', color: 'hover:bg-blue-500/20 hover:border-blue-400/50' },
-                  { icon: Instagram, label: 'Instagram', color: 'hover:bg-pink-500/20 hover:border-pink-400/50' },
-                  { icon: Twitter, label: 'Twitter', color: 'hover:bg-sky-500/20 hover:border-sky-400/50' },
-                ].map(({ icon: Icon, label, color }) => (
+                  { icon: Linkedin, label: 'LinkedIn', color: 'hover:bg-blue-500/20 hover:border-blue-400/50', href: 'https://www.linkedin.com/company/entrepreneurshipcellnith/' },
+                  { icon: Instagram, label: 'Instagram', color: 'hover:bg-pink-500/20 hover:border-pink-400/50', href: 'https://www.instagram.com/ecell_nith?igsh=MWZsaDAxcmc4cmZvcg==' },
+                  { icon: Mail, label: 'Gmail', color: 'hover:bg-red-500/20 hover:border-red-400/50', href: 'mailto:ecell@nith.ac.in' },
+                ].map(({ icon: Icon, label, color, href }) => (
                   <a
                     key={label}
-                    href="#"
+                    href={href}
                     className={`group w-14 h-14 rounded-xl bg-winter-dark/50 border border-winter-cyan/30 flex items-center justify-center ${color} transition-all duration-300 hover:scale-110`}
                     aria-label={label}
                   >

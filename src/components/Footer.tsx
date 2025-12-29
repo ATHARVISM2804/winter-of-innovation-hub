@@ -27,16 +27,16 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'Discord', href: 'https://discord.gg/your-server' },
-    { name: 'Instagram', href: 'https://instagram.com/ecell_nith' },
-    { name: 'LinkedIn', href: 'https://linkedin.com/company/ecell-nith' },
-    { name: 'Twitter', href: 'https://twitter.com/ecell_nith' },
-    { name: 'Facebook', href: 'https://facebook.com/ecellnith' },
+    
+    { name: 'Instagram', href: 'https://www.instagram.com/ecell_nith?igsh=MWZsaDAxcmc4cmZvcg==' },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/entrepreneurshipcellnith/' },
+    
+    { name: 'Gmail', href: 'https://facebook.com/ecellnith' },
   ];
 
   const contactInfo = [
-    { icon: Mail, text: 'contact@ecellnith.in' },
-    { icon: Phone, text: '+91 XXX XXX XXXX' },
+    { icon: Mail, text: 'ecell@nith.ac.in' },
+    { icon: Phone, text: '+91 91359-81893' },
     { icon: MapPin, text: 'NIT Hamirpur, HP 177005' },
   ];
 
@@ -98,11 +98,11 @@ const Footer = () => {
             </p>
             <div className="pt-4">
               <a 
-                href="#newsletter" 
+                href="https://www.instagram.com/ecell_nith?igsh=MWZsaDAxcmc4cmZvcg==" 
                 className="group inline-flex items-center gap-2 text-sm text-winter-cyan hover:text-winter-frost transition-colors font-rajdhani"
               >
                 <Sparkles className="w-4 h-4" />
-                Subscribe to Newsletter
+                Follow us for more updates
                 <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
             </div>
