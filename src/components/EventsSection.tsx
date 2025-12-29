@@ -1,49 +1,49 @@
 import { useEffect, useRef, useState } from 'react';
 import { Lightbulb, Users, Wrench, Sparkles, ArrowRight, Star } from 'lucide-react';
 
-// New events array with actual images
+// E-Summit 2026 Events
 const events = [
   {
-    title: 'Find the Bug',
+    title: 'Logic Frost',
     description:
-      'Test your debugging skills and spot the bugs in challenging code snippets. Compete with the best to claim the title of Bug Hunter!',
-    highlight: 'Coding Challenge',
+      'Compete in the ultimate GFG coding contest. Test your algorithmic skills and problem-solving abilities in this intense coding battle.',
+    highlight: 'GFG Coding Contest',
     image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/Find_the_bug_n8ewtk.png',
     gradient: 'from-amber-500/20 via-orange-500/10 to-transparent',
     accentColor: 'text-amber-400',
   },
   {
-    title: 'Virtual Stock Market',
+    title: 'Bulls Clash',
     description:
-      'Experience the thrill of trading in a simulated stock market. Make smart investments and climb the leaderboard!',
-    highlight: 'Simulated Trading',
+      'Experience the thrill of trading in a virtual stock market. Make strategic investments, analyze market trends, and compete to build your portfolio!',
+    highlight: 'Virtual Stock Market',
     image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/virtual_stock_market_anf15m.png',
     gradient: 'from-winter-cyan/20 via-teal-500/10 to-transparent',
     accentColor: 'text-winter-cyan',
   },
   {
-    title: 'Reverse Pitch',
+    title: 'Talk Show',
     description:
-      'Flip the script! Investors pitch their problems and participants propose innovative solutions.',
-    highlight: 'Investor Meets',
+      'Meet the Face of E-Summit! Engage with inspiring IAS officers and leaders who share their journey, insights, and vision for the future.',
+    highlight: 'IAS Lecture',
     image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/reverse_pitch_qso2k2.png',
     gradient: 'from-purple-500/20 via-violet-500/10 to-transparent',
     accentColor: 'text-purple-400',
   },
   {
-    title: 'Sell Your Idea',
+    title: 'Black Ice Brief',
     description:
-      'Pitch your creative ideas to a panel and get instant feedback. Convince the judges and win exciting prizes!',
-    highlight: 'Pitch Event',
+      'Navigate through unexpected challenges in this high-stakes crisis management simulation. Think fast, act smart, and lead your team to victory!',
+    highlight: 'Crisis Management',
     image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855855/sell_your_idea_w05wbs.png',
-    gradient: 'from-pink-500/20 via-red-500/10 to-transparent',
-    accentColor: 'text-pink-400',
+    gradient: 'from-red-500/20 via-rose-500/10 to-transparent',
+    accentColor: 'text-red-400',
   },
   {
-    title: "Creator's Summit",
+    title: 'Glacial Games',
     description:
-      'A gathering of top creators sharing their journeys, tips, and insights. Network and learn from the best in the business.',
-    highlight: 'Influencer Talks',
+      'The ultimate eSports showdown at E-Summit! Compete in popular gaming tournaments and prove your gaming prowess on the biggest stage.',
+    highlight: 'eSports Summit',
     image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855854/Creator_Summit_truewk.png',
     gradient: 'from-green-500/20 via-emerald-500/10 to-transparent',
     accentColor: 'text-green-400',
@@ -51,16 +51,16 @@ const events = [
   {
     title: 'Venturo',
     description:
-      'Showcase your entrepreneurial spirit and compete in a series of startup challenges.',
+      'Showcase your entrepreneurial spirit and compete in a series of startup challenges. Pitch your ideas and turn your vision into reality!',
     highlight: 'Startup Challenge',
     image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855854/Venturo_bwwipc.png',
     gradient: 'from-blue-500/20 via-sky-500/10 to-transparent',
     accentColor: 'text-blue-400',
   },
   {
-    title: 'Pannel Discussion',
+    title: 'Panel Discussion',
     description:
-      'Engage with industry leaders in thought-provoking discussions on trending topics.',
+      'Engage with industry leaders and experts in thought-provoking discussions on innovation, entrepreneurship, and the future of business.',
     highlight: 'Expert Panel',
     image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/pannel_discussion_bqv6id.png',
     gradient: 'from-yellow-500/20 via-amber-500/10 to-transparent',
@@ -69,11 +69,29 @@ const events = [
   {
     title: 'IPL Auction',
     description:
-      'Experience the excitement of an IPL-style auction. Build your dream team and strategize to win!',
+      'Experience the excitement of an IPL-style auction! Build your dream team with strategic bidding and compete to create the ultimate squad.',
     highlight: 'Team Auction',
     image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855853/ipl_auction_fsqx24.png',
     gradient: 'from-indigo-500/20 via-blue-500/10 to-transparent',
     accentColor: 'text-indigo-400',
+  },
+  {
+    title: 'Protoforze',
+    description:
+      'Transform your innovative ideas into working prototypes. Collaborate, create, and compete in this hands-on innovation challenge.',
+    highlight: 'Prototype Building',
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855854/Venturo_bwwipc.png',
+    gradient: 'from-pink-500/20 via-fuchsia-500/10 to-transparent',
+    accentColor: 'text-pink-400',
+  },
+  {
+    title: "Creators Summit",
+    description:
+      'A gathering of top content creators and influencers sharing their journeys, strategies, and insights. Network and learn from the best in the business.',
+    highlight: 'Influencer Talks',
+    image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1766855854/Creator_Summit_truewk.png',
+    gradient: 'from-cyan-500/20 via-teal-500/10 to-transparent',
+    accentColor: 'text-cyan-400',
   },
 ];
 
@@ -203,7 +221,7 @@ const EventsSection = () => {
         {/* View All Events Button */}
         <div className={`text-center mt-16 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <button className="group relative inline-flex items-center gap-3 px-8 py-4 font-rajdhani text-lg border border-winter-cyan/40 rounded-full text-winter-frost hover:bg-winter-cyan/10 hover:border-winter-cyan transition-all duration-300">
-            <span>View All Events</span>
+            <span>Know more about Events</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
             <div className="absolute inset-0 rounded-full bg-winter-cyan/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
