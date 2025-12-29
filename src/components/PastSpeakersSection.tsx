@@ -136,74 +136,109 @@ const PastSpeakersSection = () => {
 				{/* Speakers Grid */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 					{speakers.map((speaker, index) => (
-						<div
-							key={index}
-							className={`group relative transition-all duration-700 ${
-								isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-							}`}
-							style={{ transitionDelay: `${200 + index * 100}ms` }}
-							onMouseEnter={() => setHoveredIndex(index)}
-							onMouseLeave={() => setHoveredIndex(null)}
-						>
-							{/* Card */}
-							<div className="relative h-full frosted-glass mystic-card rounded-2xl px-6 py-8 border border-winter-cyan/10 hover:border-winter-cyan/30 transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_60px_-15px_rgba(0,200,255,0.15)] flex flex-col items-center max-w-xs mx-auto">
-								{/* Year Badge */}
-								<div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-winter-cyan/10 border border-winter-cyan/30">
-									<span className="font-rajdhani text-xs text-winter-cyan font-medium">
+					<div
+						key={index}
+						className={`group relative transition-all duration-700 ${
+							isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+						}`}
+						style={{ transitionDelay: `${200 + index * 100}ms` }}
+						onMouseEnter={() => setHoveredIndex(index)}
+						onMouseLeave={() => setHoveredIndex(null)}
+					>
+						{/* Card */}
+						<div className="relative h-full frosted-glass mystic-card rounded-2xl px-6 py-8 border-2 border-winter-cyan/20 hover:border-winter-cyan/40 transition-all duration-500 hover:translate-y-[-10px] hover:shadow-[0_25px_70px_-15px_rgba(0,200,255,0.25)] flex flex-col items-center max-w-xs mx-auto overflow-hidden">
+							{/* Gradient Overlay on Hover */}
+							<div className="absolute inset-0 bg-gradient-to-br from-winter-cyan/5 via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+							
+							{/* Animated Glow Background */}
+							<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+								<div className="absolute inset-0 bg-gradient-to-br from-winter-cyan/10 via-purple-500/10 to-transparent blur-2xl" />
+							</div>
+
+							{/* Year Badge */}
+							{speaker.year && (
+								<div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-winter-cyan/10 border border-winter-cyan/30 backdrop-blur-sm group-hover:bg-winter-cyan/20 group-hover:border-winter-cyan/50 transition-all duration-300 z-10">
+									<span className="font-rajdhani text-xs text-winter-cyan font-semibold">
 										{speaker.year}
 									</span>
 								</div>
+							)}
 
-								{/* Speaker Image */}
-								<div className="relative w-40 h-40 mb-6">
-									<div className="absolute inset-0 rounded-full bg-gradient-to-br from-winter-cyan/20 to-purple-500/20 animate-pulse" />
-									<div className="relative w-full h-full rounded-full bg-winter-dark/80 border-4 border-winter-cyan/40 flex items-center justify-center overflow-hidden group-hover:border-winter-cyan/70 transition-all duration-300 shadow-lg">
-										{speaker.image ? (
+							{/* Speaker Image with Enhanced Styling */}
+							<div className="relative w-40 h-40 mb-6 z-10">
+								{/* Pulsing Background Glow */}
+								<div className="absolute inset-0 rounded-full bg-gradient-to-br from-winter-cyan/30 to-purple-500/30 animate-pulse blur-md" />
+								
+								{/* Image Container */}
+								<div className="relative w-full h-full rounded-full bg-gradient-to-br from-winter-dark/90 to-winter-deep/90 border-4 border-winter-cyan/40 flex items-center justify-center overflow-hidden group-hover:border-winter-cyan/70 group-hover:scale-105 transition-all duration-500 shadow-xl">
+									{speaker.image ? (
+										<>
 											<img
 												src={speaker.image}
 												alt={speaker.name}
-												className="w-full h-full object-cover"
+												className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
 											/>
-										) : (
-											<span className="font-cinzel text-6xl font-bold text-winter-cyan/60 group-hover:text-winter-cyan transition-colors">
-												{speaker.name.charAt(0)}
-											</span>
-										)}
-									</div>
-									<div
-										className={`absolute inset-0 rounded-full bg-winter-cyan/20 blur-xl transition-opacity duration-300 ${
-											hoveredIndex === index ? 'opacity-100' : 'opacity-0'
-										}`}
-									/>
-								</div>
-
-								{/* Speaker Info */}
-								<div className="text-center w-full">
-									<h3 className="font-cinzel text-xl font-semibold text-winter-frost mb-2 group-hover:text-winter-cyan transition-colors duration-300">
-										{speaker.name}
-									</h3>
-									<p className="font-rajdhani text-sm text-winter-cyan/80 mb-4 whitespace-normal break-words">
-										{speaker.title}
-									</p>
-									
-									{/* Topic */}
-									{speaker.topic && (
-										<div className="relative mt-4 p-4 rounded-xl bg-winter-deep/50 border border-winter-cyan/10 group-hover:border-winter-cyan/20 transition-all duration-300">
-											<Quote className="absolute -top-2 -left-2 w-4 h-4 text-winter-cyan/40" />
-											<p className="font-cormorant text-base text-winter-silver/70 italic">
-												"{speaker.topic}"
-											</p>
-											<Quote className="absolute -bottom-2 -right-2 w-4 h-4 text-winter-cyan/40 rotate-180" />
-										</div>
+											{/* Image Overlay */}
+											<div className="absolute inset-0 bg-gradient-to-t from-winter-deep/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+										</>
+									) : (
+										<span className="font-cinzel text-6xl font-bold text-winter-cyan/60 group-hover:text-winter-cyan transition-colors">
+											{speaker.name.charAt(0)}
+										</span>
 									)}
 								</div>
-
-								{/* Decorative corner accents */}
-								<div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-winter-cyan/20 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-								<div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-winter-cyan/20 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+								
+								{/* Enhanced Hover Glow */}
+								<div
+									className={`absolute inset-0 rounded-full bg-winter-cyan/30 blur-2xl transition-all duration-500 ${
+										hoveredIndex === index ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
+									}`}
+								/>
 							</div>
+
+							{/* Speaker Info */}
+							<div className="text-center w-full relative z-10">
+								{/* Name with Glow Effect */}
+								<h3 className="font-cinzel text-xl font-bold text-winter-frost mb-2 group-hover:text-glow transition-all duration-300">
+									{speaker.name}
+								</h3>
+								
+								{/* Title with Enhanced Styling */}
+								<div className="px-3 py-1.5 rounded-lg bg-winter-cyan/5 border border-winter-cyan/20 mb-4 group-hover:bg-winter-cyan/10 group-hover:border-winter-cyan/30 transition-all duration-300">
+									<p className="font-rajdhani text-sm text-winter-cyan/90 whitespace-normal break-words leading-relaxed">
+										{speaker.title}
+									</p>
+								</div>
+								
+								{/* Topic */}
+								{speaker.topic && (
+									<div className="relative mt-4 p-4 rounded-xl bg-winter-deep/50 border border-winter-cyan/10 group-hover:border-winter-cyan/30 transition-all duration-300 backdrop-blur-sm">
+										<Quote className="absolute -top-2 -left-2 w-4 h-4 text-winter-cyan/50" />
+										<p className="font-cormorant text-base text-winter-silver/80 italic">
+											"{speaker.topic}"
+										</p>
+										<Quote className="absolute -bottom-2 -right-2 w-4 h-4 text-winter-cyan/50 rotate-180" />
+									</div>
+								)}
+							</div>
+
+							{/* Enhanced Decorative Corner Accents */}
+						<div className="absolute top-3 left-3 w-10 h-10 border-l-2 border-t-2 border-winter-cyan/30 rounded-tl-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+						<div className="absolute bottom-3 right-3 w-10 h-10 border-r-2 border-b-2 border-winter-cyan/30 rounded-br-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+						
+						{/* Decorative Stars */}
+						<div className="absolute top-4 right-4 text-winter-cyan/30 group-hover:text-winter-cyan/60 transition-all duration-500">
+							<span className="text-2xl animate-pulse" style={{ textShadow: '0 0 10px rgba(100, 255, 255, 0.3)' }}>✦</span>
 						</div>
-					))}
+						<div className="absolute bottom-4 left-4 text-purple-400/30 group-hover:text-purple-400/60 transition-all duration-500 animation-delay-200">
+							<span className="text-xl animate-pulse" style={{ textShadow: '0 0 10px rgba(192, 132, 252, 0.3)' }}>✦</span>
+						</div>
+						
+						{/* Bottom Glow Line */}
+						<div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-winter-cyan/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+					</div>
+					</div>
+				))}
 				</div>
 
 				{/* Bottom CTA */}
