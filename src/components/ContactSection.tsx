@@ -139,8 +139,8 @@ const ContactSection = () => {
               <div className="flex gap-4">
                 {[
                   { icon: Linkedin, label: 'LinkedIn', color: 'hover:bg-blue-500/20 hover:border-blue-400/50', href: 'https://www.linkedin.com/company/entrepreneurshipcellnith/' },
-                  { icon: Instagram, label: 'Instagram', color: 'hover:bg-pink-500/20 hover:border-pink-400/50', href: 'https://www.instagram.com/ecell_nith?igsh=MWZsaDAxcmc4cmZvcg==' },
-                  { icon: Mail, label: 'Gmail', color: 'hover:bg-red-500/20 hover:border-red-400/50', href: 'mailto:ecell@nith.ac.in' },
+                  { icon: Instagram, label: 'Instagram', color: 'hover:bg-blue-500/20 hover:border-blue-400/50', href: 'https://www.instagram.com/ecell_nith?igsh=MWZsaDAxcmc4cmZvcg==' },
+                  { icon: Mail, label: 'Gmail', color: 'hover:bg-blue-500/20 hover:border-blue-400/50', href: 'mailto:ecell@nith.ac.in' },
                 ].map(({ icon: Icon, label, color, href }) => (
                   <a
                     key={label}
