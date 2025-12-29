@@ -197,25 +197,25 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-6 transition-all duration-1000 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <button className="group relative btn-primary font-rajdhani text-lg px-10 py-4 animate-pulse-glow overflow-hidden">
+            <a href="#contact" className="group relative btn-primary font-rajdhani text-lg px-10 py-4 animate-pulse-glow overflow-hidden">
               <span className="relative z-10 flex items-center gap-2">
                 <Sparkles className="w-5 h-5" />
                 Get Tickets
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-winter-cyan via-white/20 to-winter-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </button>
-            <button className="group btn-secondary font-rajdhani text-lg px-10 py-4 hover:scale-105 transition-all duration-300">
+            </a>
+            <a href="#events" className="group btn-secondary font-rajdhani text-lg px-10 py-4 hover:scale-105 transition-all duration-300">
               <span className="flex items-center gap-2">
-                Explore More
+                Explore Events
                 <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
 
       {/* Enhanced Scroll Indicator */}
-      <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="flex flex-col items-center gap-2">
           <span className="text-winter-silver/50 text-xs font-rajdhani tracking-widest uppercase">Scroll</span>
           <div className="w-6 h-10 rounded-full border-2 border-winter-cyan/50 flex items-start justify-center p-2 animate-border-glow">
