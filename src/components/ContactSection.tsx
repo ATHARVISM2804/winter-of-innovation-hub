@@ -255,19 +255,86 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-4 mt-12">
-        <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden border border-winter-cyan/10">
-          <iframe
-            title="NIT Hamirpur Map"
-            src="https://www.google.com/maps?q=NIT+Hamirpur+Himachal+Pradesh+177005&output=embed"
-            width="100%"
-            height="450"
-            className="w-full h-80 md:h-96 border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          <div className="p-4 bg-winter-dark/60 text-winter-silver/80 text-sm">
-            Address: NIT Hamirpur Himachal Pradesh 177005
+      
+      {/* Enhanced Map Section */}
+      <div className="container mx-auto px-4 mt-20">
+        <div className={`max-w-6xl mx-auto transition-all duration-1000 delay-400 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          {/* Map Header */}
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-winter-cyan/50" />
+              <MapPin className="w-5 h-5 text-winter-cyan animate-pulse" />
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-winter-cyan/50" />
+            </div>
+            <h3 className="font-cinzel-decorative text-2xl md:text-3xl font-bold text-winter-frost mb-2">
+              Find Us Here
+            </h3>
+            <p className="font-cormorant text-winter-silver/70 italic">
+              Visit us at NIT Hamirpur, Himachal Pradesh
+            </p>
+          </div>
+
+          {/* Map Container with Enhanced Styling */}
+          <div className="relative frosted-glass mystic-card rounded-2xl overflow-hidden border border-winter-cyan/20 shadow-2xl">
+            {/* Corner Decorations */}
+            <div className="absolute top-4 left-4 w-10 h-10 border-l-2 border-t-2 border-winter-cyan/40 rounded-tl-xl z-10" />
+            <div className="absolute top-4 right-4 w-10 h-10 border-r-2 border-t-2 border-winter-cyan/40 rounded-tr-xl z-10" />
+            <div className="absolute bottom-20 left-4 w-10 h-10 border-l-2 border-b-2 border-winter-cyan/40 rounded-bl-xl z-10" />
+            <div className="absolute bottom-20 right-4 w-10 h-10 border-r-2 border-b-2 border-winter-cyan/40 rounded-br-xl z-10" />
+            
+            {/* Decorative Glow Effects */}
+            <div className="absolute top-0 left-1/4 w-32 h-32 bg-winter-cyan/10 rounded-full blur-3xl z-0" />
+            <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl z-0" />
+            
+            {/* Map Iframe with Overlay */}
+            <div className="relative">
+              <iframe
+                title="NIT Hamirpur Map"
+                src="https://www.google.com/maps?q=NIT+Hamirpur+Himachal+Pradesh+177005&output=embed"
+                width="100%"
+                height="450"
+                className="w-full h-80 md:h-96 border-0 relative z-[1]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{
+                  filter: 'saturate(0.8) brightness(0.9) contrast(1.1)',
+                }}
+              />
+              
+              {/* Subtle Gradient Overlay for better integration */}
+              <div className="absolute inset-0 bg-gradient-to-t from-winter-deep/30 via-transparent to-winter-deep/20 pointer-events-none z-[2]" />
+            </div>
+            
+            {/* Enhanced Address Section */}
+            <div className="relative bg-gradient-to-r from-winter-dark/90 via-winter-dark/80 to-winter-dark/90 backdrop-blur-sm border-t border-winter-cyan/20 p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-winter-cyan/10 border border-winter-cyan/30 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-winter-cyan" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-winter-silver/60 text-xs font-rajdhani uppercase tracking-wider mb-1">
+                    Our Location
+                  </p>
+                  <p className="text-winter-frost font-cormorant text-lg md:text-xl">
+                    National Institute of Technology Hamirpur
+                  </p>
+                  <p className="text-winter-silver/70 font-cormorant text-base mt-1">
+                    Hamirpur, Himachal Pradesh 177005, India
+                  </p>
+                </div>
+                <a
+                  href="https://www.google.com/maps?q=NIT+Hamirpur+Himachal+Pradesh+177005"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group px-4 py-2 bg-winter-cyan/10 border border-winter-cyan/30 rounded-lg hover:bg-winter-cyan/20 hover:border-winter-cyan/50 transition-all duration-300 flex items-center gap-2"
+                >
+                  <span className="text-winter-cyan text-sm font-rajdhani">View on Maps</span>
+                  <Sparkles className="w-4 h-4 text-winter-cyan group-hover:rotate-12 transition-transform" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -91,27 +91,9 @@ const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
               
               {/* Magical glow on hover */}
               <div className={`absolute inset-0 bg-gradient-to-t from-winter-cyan/30 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
-              
-              {/* Social Links - Show on Hover */}
-              <div className={`absolute inset-0 flex items-center justify-center gap-3 transition-all duration-300 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
-                {[
-                  { Icon: Linkedin, label: 'LinkedIn' },
-                  { Icon: Twitter, label: 'Twitter' },
-                  { Icon: Instagram, label: 'Instagram' },
-                ].map(({ Icon, label }) => (
-                  <a
-                    key={label}
-                    href="#"
-                    className="w-9 h-9 rounded-full bg-winter-dark/90 backdrop-blur-sm border border-winter-cyan/40 flex items-center justify-center hover:bg-winter-cyan/20 hover:border-winter-cyan transition-all duration-200 hover:scale-110"
-                    aria-label={label}
-                  >
-                    <Icon className="w-4 h-4 text-winter-cyan" />
-                  </a>
-                ))}
-              </div>
 
-              {/* Quote on hover - positioned at top */}
-              <div className={`absolute top-3 left-3 right-3 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+              {/* Quote on hover - positioned at center */}
+              <div className={`absolute inset-0 flex items-center justify-center px-4 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
                 <p className="font-cormorant text-xs text-winter-frost/90 italic text-center">
                   "{member.quote}"
                 </p>
@@ -125,9 +107,27 @@ const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
           <h3 className={`font-cinzel text-base font-semibold text-winter-frost mb-1 transition-all duration-300 ${isHovered ? 'text-glow' : ''}`}>
             {member.name}
           </h3>
-          <p className="text-winter-cyan text-xs font-rajdhani tracking-wider uppercase">
+          <p className="text-winter-cyan text-xs font-rajdhani tracking-wider uppercase mb-3">
             {member.position}
           </p>
+          
+          {/* Social Links Below Profile */}
+          <div className="flex items-center justify-center gap-3">
+            <a
+              href="#"
+              className="w-8 h-8 rounded-full bg-winter-dark/50 border border-winter-cyan/30 flex items-center justify-center hover:bg-winter-cyan/20 hover:border-winter-cyan transition-all duration-300 hover:scale-110"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-4 h-4 text-winter-cyan" />
+            </a>
+            <a
+              href="#"
+              className="w-8 h-8 rounded-full bg-winter-dark/50 border border-winter-cyan/30 flex items-center justify-center hover:bg-winter-cyan/20 hover:border-winter-cyan transition-all duration-300 hover:scale-110"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4 text-winter-cyan" />
+            </a>
+          </div>
           
           {/* Sparkle decoration */}
           <Sparkles className={`absolute -top-2 right-0 w-3 h-3 transition-all duration-300 ${isHovered ? 'text-winter-cyan/60 scale-125' : 'text-winter-cyan/20'}`} />

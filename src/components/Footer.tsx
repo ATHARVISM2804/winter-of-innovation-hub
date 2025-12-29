@@ -183,6 +183,32 @@ const Footer = () => {
               ))}
             </div>
             
+            {/* E-Cell Logo and Name */}
+            <div className="pt-6 mt-6 border-t border-winter-cyan/10">
+              <div className="flex items-center gap-4">
+                {/* E-Cell Logo */}
+                <div className="flex-shrink-0">
+                  <img 
+                    src="https://res.cloudinary.com/dinhcaf2c/image/upload/v1767029001/Logo_-_Colored_with_Tagline_1_ubeyga.png"
+                    alt="E-Cell NIT Hamirpur Logo"
+                    className="w-24 h-24 md:w-32 md:h-32 object-contain filter drop-shadow-lg hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+                {/* E-Cell Name */}
+                <div>
+                  <h4 className="font-cinzel-decorative text-xl md:text-2xl font-bold">
+                    <span className="bg-gradient-to-r from-winter-frost via-winter-cyan to-winter-frost bg-clip-text text-transparent">
+                      ECELL
+                    </span>
+                  </h4>
+                  <p className="font-cinzel text-sm md:text-base text-winter-silver/80 mt-1">
+                    NIT Hamirpur
+                  </p>
+                </div>
+              </div>
+            </div>
+            
             {/* Additional Info */}
             <div className="pt-6 mt-6 border-t border-winter-cyan/10">
               <p className="text-sm text-winter-silver/50 font-cormorant italic leading-relaxed">
