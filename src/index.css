@@ -104,7 +104,12 @@
     font-family: 'Rajdhani', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Cinzel Decorative', 'Cinzel', serif;
   }
 
@@ -123,6 +128,7 @@
 }
 
 @layer components {
+
   /* Glassmorphism Card */
   .glass-card {
     @apply relative overflow-hidden rounded-xl;
@@ -130,7 +136,7 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid hsl(var(--glass-border));
-    box-shadow: 
+    box-shadow:
       0 8px 32px hsl(var(--winter-deep) / 0.4),
       inset 0 1px 0 hsl(var(--winter-frost) / 0.1);
   }
@@ -173,14 +179,12 @@
 
   /* Shimmer Animation */
   .shimmer-text {
-    background: linear-gradient(
-      90deg,
-      hsl(var(--winter-frost)) 0%,
-      hsl(var(--winter-cyan)) 25%,
-      hsl(var(--winter-frost)) 50%,
-      hsl(var(--winter-cyan)) 75%,
-      hsl(var(--winter-frost)) 100%
-    );
+    background: linear-gradient(90deg,
+        hsl(var(--winter-frost)) 0%,
+        hsl(var(--winter-cyan)) 25%,
+        hsl(var(--winter-frost)) 50%,
+        hsl(var(--winter-cyan)) 75%,
+        hsl(var(--winter-frost)) 100%);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -193,14 +197,14 @@
     @apply relative px-8 py-3 font-semibold rounded-lg overflow-hidden transition-all duration-300;
     background: linear-gradient(135deg, hsl(var(--winter-cyan)), hsl(var(--winter-teal)));
     color: hsl(var(--winter-deep));
-    box-shadow: 
+    box-shadow:
       0 4px 20px hsl(var(--winter-cyan) / 0.4),
       inset 0 1px 0 hsl(var(--winter-frost) / 0.3);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 
+    box-shadow:
       0 8px 30px hsl(var(--winter-cyan) / 0.6),
       inset 0 1px 0 hsl(var(--winter-frost) / 0.4);
   }
@@ -261,35 +265,71 @@
 }
 
 @layer utilities {
+
   /* Custom Animations */
   @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px hsl(var(--winter-cyan) / 0.4); }
-    50% { box-shadow: 0 0 40px hsl(var(--winter-cyan) / 0.6); }
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px hsl(var(--winter-cyan) / 0.4);
+    }
+
+    50% {
+      box-shadow: 0 0 40px hsl(var(--winter-cyan) / 0.6);
+    }
   }
 
   @keyframes snow-fall {
-    0% { transform: translateY(-10vh) translateX(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(100vh) translateX(20px); opacity: 0; }
+    0% {
+      transform: translateY(-10vh) translateX(0);
+      opacity: 0;
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(100vh) translateX(20px);
+      opacity: 0;
+    }
   }
 
   @keyframes aurora {
-    0%, 100% { 
+
+    0%,
+    100% {
       opacity: 0.3;
       transform: translateX(-50%) scaleX(1);
     }
-    50% { 
+
+    50% {
       opacity: 0.5;
       transform: translateX(-50%) scaleX(1.2);
     }
@@ -300,6 +340,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0);
@@ -311,6 +352,7 @@
       opacity: 0;
       transform: scale(0.9);
     }
+
     100% {
       opacity: 1;
       transform: scale(1);
@@ -341,23 +383,49 @@
     animation: scale-in 0.6s ease-out forwards;
   }
 
-  .animation-delay-100 { animation-delay: 100ms; }
-  .animation-delay-200 { animation-delay: 200ms; }
-  .animation-delay-300 { animation-delay: 300ms; }
-  .animation-delay-400 { animation-delay: 400ms; }
-  .animation-delay-500 { animation-delay: 500ms; }
-  .animation-delay-600 { animation-delay: 600ms; }
-  .animation-delay-700 { animation-delay: 700ms; }
-  .animation-delay-800 { animation-delay: 800ms; }
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
 
   /* ========== MAJESTIC ANIMATIONS ========== */
-  
+
   /* Mystical Glow Pulse */
   @keyframes mystical-glow {
-    0%, 100% { 
+
+    0%,
+    100% {
       filter: drop-shadow(0 0 10px hsl(187 100% 50% / 0.4)) drop-shadow(0 0 30px hsl(270 50% 50% / 0.2));
     }
-    50% { 
+
+    50% {
       filter: drop-shadow(0 0 20px hsl(187 100% 50% / 0.6)) drop-shadow(0 0 50px hsl(270 50% 50% / 0.4));
     }
   }
@@ -373,9 +441,11 @@
       transform: translateY(60px) scale(0.9);
       filter: blur(10px);
     }
+
     50% {
       filter: blur(0);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0) scale(1);
@@ -392,6 +462,7 @@
     0% {
       background-position: -200% center;
     }
+
     100% {
       background-position: 200% center;
     }
@@ -404,12 +475,16 @@
 
   /* Ethereal Float */
   @keyframes ethereal-float {
-    0%, 100% { 
+
+    0%,
+    100% {
       transform: translateY(0) rotate(0deg);
     }
+
     25% {
       transform: translateY(-8px) rotate(1deg);
     }
+
     75% {
       transform: translateY(-4px) rotate(-1deg);
     }
@@ -421,14 +496,17 @@
 
   /* Rune Glow */
   @keyframes rune-glow {
-    0%, 100% {
-      text-shadow: 
+
+    0%,
+    100% {
+      text-shadow:
         0 0 10px hsl(187 100% 50% / 0.5),
         0 0 20px hsl(187 100% 50% / 0.3),
         0 0 40px hsl(270 50% 50% / 0.2);
     }
+
     50% {
-      text-shadow: 
+      text-shadow:
         0 0 20px hsl(187 100% 50% / 0.7),
         0 0 40px hsl(187 100% 50% / 0.5),
         0 0 60px hsl(270 50% 50% / 0.3),
@@ -446,10 +524,12 @@
       clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
       opacity: 0;
     }
+
     50% {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       opacity: 1;
     }
+
     100% {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       opacity: 1;
@@ -462,23 +542,24 @@
 
   /* Northern Lights Gradient */
   @keyframes northern-lights {
-    0%, 100% {
+
+    0%,
+    100% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
   }
 
   .animate-northern-lights {
-    background: linear-gradient(
-      90deg,
-      hsl(187 100% 42%),
-      hsl(270 50% 50%),
-      hsl(180 60% 45%),
-      hsl(200 80% 50%),
-      hsl(187 100% 42%)
-    );
+    background: linear-gradient(90deg,
+        hsl(187 100% 42%),
+        hsl(270 50% 50%),
+        hsl(180 60% 45%),
+        hsl(200 80% 50%),
+        hsl(187 100% 42%));
     background-size: 300% 100%;
     animation: northern-lights 8s ease-in-out infinite;
   }
@@ -489,9 +570,11 @@
       transform: scale(0);
       opacity: 0;
     }
+
     50% {
       opacity: 1;
     }
+
     100% {
       transform: scale(1);
       opacity: 1;
@@ -504,15 +587,18 @@
 
   /* Majestic Border Animation */
   @keyframes majestic-border {
-    0%, 100% {
+
+    0%,
+    100% {
       border-color: hsl(187 100% 42% / 0.3);
-      box-shadow: 
+      box-shadow:
         0 0 20px hsl(187 100% 50% / 0.1),
         inset 0 0 20px hsl(187 100% 50% / 0.05);
     }
+
     50% {
       border-color: hsl(187 100% 50% / 0.6);
-      box-shadow: 
+      box-shadow:
         0 0 40px hsl(187 100% 50% / 0.2),
         inset 0 0 30px hsl(187 100% 50% / 0.1);
     }
@@ -536,14 +622,12 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(
-      from 0deg,
-      transparent,
-      hsl(187 100% 50% / 0.1),
-      transparent,
-      hsl(270 50% 50% / 0.1),
-      transparent
-    );
+    background: conic-gradient(from 0deg,
+        transparent,
+        hsl(187 100% 50% / 0.1),
+        transparent,
+        hsl(270 50% 50% / 0.1),
+        transparent);
     animation: rotate-gradient 8s linear infinite;
     opacity: 0;
     transition: opacity 0.5s;
@@ -561,14 +645,12 @@
 
   /* Enchanted Text */
   .enchanted-text {
-    background: linear-gradient(
-      90deg,
-      hsl(200 30% 95%),
-      hsl(187 100% 70%),
-      hsl(200 30% 95%),
-      hsl(270 50% 70%),
-      hsl(200 30% 95%)
-    );
+    background: linear-gradient(90deg,
+        hsl(200 30% 95%),
+        hsl(187 100% 70%),
+        hsl(200 30% 95%),
+        hsl(270 50% 70%),
+        hsl(200 30% 95%));
     background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -585,13 +667,11 @@
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(
-      45deg,
-      hsl(187 100% 50% / 0.5),
-      transparent 30%,
-      transparent 70%,
-      hsl(187 100% 50% / 0.5)
-    );
+    background: linear-gradient(45deg,
+        hsl(187 100% 50% / 0.5),
+        transparent 30%,
+        transparent 70%,
+        hsl(187 100% 50% / 0.5));
     z-index: -1;
     border-radius: inherit;
     animation: ice-border-rotate 4s linear infinite;
@@ -612,7 +692,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: 
+    background-image:
       radial-gradient(circle at 20% 30%, hsl(187 100% 70% / 0.3) 1px, transparent 1px),
       radial-gradient(circle at 80% 70%, hsl(270 50% 70% / 0.3) 1px, transparent 1px),
       radial-gradient(circle at 50% 50%, hsl(180 60% 60% / 0.3) 1px, transparent 1px);
@@ -631,14 +711,12 @@
   .royal-divider {
     position: relative;
     height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      hsl(187 100% 50% / 0.3),
-      hsl(187 100% 50%),
-      hsl(187 100% 50% / 0.3),
-      transparent
-    );
+    background: linear-gradient(90deg,
+        transparent,
+        hsl(187 100% 50% / 0.3),
+        hsl(187 100% 50%),
+        hsl(187 100% 50% / 0.3),
+        transparent);
   }
 
   .royal-divider::before,
@@ -662,15 +740,13 @@
 
   /* Frosted Glass Enhanced */
   .frosted-glass {
-    background: linear-gradient(
-      135deg,
-      hsl(218 45% 12% / 0.8),
-      hsl(218 45% 8% / 0.6)
-    );
+    background: linear-gradient(135deg,
+        hsl(218 45% 12% / 0.8),
+        hsl(218 45% 8% / 0.6));
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid hsl(187 100% 50% / 0.2);
-    box-shadow: 
+    box-shadow:
       0 8px 32px hsl(218 58% 5% / 0.5),
       inset 0 1px 0 hsl(200 30% 95% / 0.1),
       inset 0 -1px 0 hsl(187 100% 50% / 0.1);
@@ -689,11 +765,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(
-      circle,
-      hsl(187 100% 50% / 0.3),
-      transparent 60%
-    );
+    background: radial-gradient(circle,
+        hsl(187 100% 50% / 0.3),
+        transparent 60%);
     filter: blur(30px);
     animation: pulse-glow 3s ease-in-out infinite;
   }
@@ -723,6 +797,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -733,6 +808,7 @@
       opacity: 0;
       transform: scale(0.95);
     }
+
     to {
       opacity: 1;
       transform: scale(1);
@@ -748,12 +824,80 @@
   }
 
   /* Stagger Animation Delays */
-  .stagger-1 { animation-delay: 0.1s; }
-  .stagger-2 { animation-delay: 0.2s; }
-  .stagger-3 { animation-delay: 0.3s; }
-  .stagger-4 { animation-delay: 0.4s; }
-  .stagger-5 { animation-delay: 0.5s; }
-  .stagger-6 { animation-delay: 0.6s; }
-  .stagger-7 { animation-delay: 0.7s; }
-  .stagger-8 { animation-delay: 0.8s; }
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+
+  .stagger-3 {
+    animation-delay: 0.3s;
+  }
+
+  .stagger-4 {
+    animation-delay: 0.4s;
+  }
+
+  .stagger-5 {
+    animation-delay: 0.5s;
+  }
+
+  .stagger-6 {
+    animation-delay: 0.6s;
+  }
+
+  .stagger-7 {
+    animation-delay: 0.7s;
+  }
+
+  .stagger-8 {
+    animation-delay: 0.8s;
+  }
+
+  /* Team Section Sliding Animations */
+  @keyframes slide-left {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes slide-right {
+    0% {
+      transform: translateX(-50%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-left {
+    animation: slide-left 60s linear infinite;
+  }
+
+  .animate-slide-right {
+    animation: slide-right 60s linear infinite;
+  }
+
+  .animate-slide-left-fast {
+    animation: slide-left 40s linear infinite;
+  }
+
+  .animate-slide-right-fast {
+    animation: slide-right 40s linear infinite;
+  }
+
+  /* Pause animation on hover */
+  .animate-slide-left:hover,
+  .animate-slide-right:hover,
+  .animate-slide-left-fast:hover,
+  .animate-slide-right-fast:hover {
+    animation-play-state: paused;
+  }
 }
