@@ -88,11 +88,24 @@ const Footer = () => {
           
           {/* About Section */}
           <div className="space-y-6">
-            <h3 className="font-cinzel-decorative text-2xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-winter-frost via-winter-cyan to-winter-frost bg-clip-text text-transparent animate-shimmer" style={{ backgroundSize: '200% 100%' }}>
-                Winter of Innovation
-              </span>
-            </h3>
+            <div className="flex items-center gap-4 mb-6">
+              {/* E-Summit Logo */}
+              <div className="flex-shrink-0">
+                <img 
+                  src="https://res.cloudinary.com/dinhcaf2c/image/upload/v1767028622/e_summi_logo_t75m9e_zzhyoa.png"
+                  alt="E-Summit Logo"
+                  className="w-12 h-12 md:w-14 md:h-14 object-contain filter drop-shadow-lg hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              
+              {/* Title */}
+              <h3 className="font-cinzel-decorative text-2xl font-bold">
+                <span className="bg-gradient-to-r from-winter-frost via-winter-cyan to-winter-frost bg-clip-text text-transparent animate-shimmer" style={{ backgroundSize: '200% 100%' }}>
+                  Winter of Innovation
+                </span>
+              </h3>
+            </div>
+            
             <p className="font-cormorant text-winter-silver/70 text-lg leading-relaxed italic">
               Where ideas rise from the cold to ignite change. Join us for an extraordinary journey of innovation and inspiration.
             </p>
