@@ -102,7 +102,7 @@ const ContactSection = () => {
 
             <div className="space-y-8">
               {[
-                { icon: Mail, label: 'Email', value: 'contact@esummit.co.in', href: 'mailto:contact@esummit.co.in' },
+                { icon: Mail, label: 'Email', value: 'ecell@nith.ac.in', href: 'mailto:ecell@nith.ac.in' },
                 { icon: Phone, label: 'Phone', value: '+91 98765 43210', href: 'tel:+919876543210' },
                 { icon: MapPin, label: 'Location', value: 'NIT Hamirpur, Himachal Pradesh', href: null },
               ].map((item, index) => (
