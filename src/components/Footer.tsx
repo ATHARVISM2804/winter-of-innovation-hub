@@ -31,7 +31,7 @@ const Footer = () => {
     { name: 'Instagram', href: 'https://www.instagram.com/ecell_nith?igsh=MWZsaDAxcmc4cmZvcg==' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/company/entrepreneurshipcellnith/' },
     
-    { name: 'Gmail', href: 'https://facebook.com/ecellnith' },
+    { name: 'Gmail', href: 'mailto:ecell@nith.ac.in' },
   ];
 
   const contactInfo = [
