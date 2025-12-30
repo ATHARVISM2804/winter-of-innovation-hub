@@ -792,6 +792,22 @@
     background: rgba(100, 255, 255, 0.3);
   }
 
+  /* Pause animation class */
+  .pause-animation {
+    animation-play-state: paused !important;
+  }
+
+  /* Faster animation speeds for mobile */
+  @media (max-width: 768px) {
+    .animate-slide-left-fast {
+      animation-duration: 18s !important;
+    }
+
+    .animate-slide-right-fast {
+      animation-duration: 18s !important;
+    }
+  }
+
   /* Modal Animations */
   @keyframes fade-in {
     from {
