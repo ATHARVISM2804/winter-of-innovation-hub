@@ -11,7 +11,7 @@ const finalYearTeam = [
   { name: 'Srujan', position: 'CPR Head', image: '', quote: 'Creating impact' },
   { name: 'Vaishnav', position: 'Finance Head', image: '', quote: 'Managing resources' },
   { name: 'Harshit', position: 'Event Head', image: '', quote: 'Crafting experiences' },
-  { name: 'Abhinav Dhiman', position: 'Event Head', image: '', quote: 'Making it happen' },
+  { name: 'Abhinav Dhiman', position: 'Event Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767176156/DSC_8943_3_udwsnl.jpg', quote: 'Making it happen' },
 ];
 
 // 3rd Year Team - 23 members
@@ -19,11 +19,11 @@ const thirdYearTeam = [
   { name: 'Atharv', position: 'Web Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076457/atharv_lpkcnw.jpg', quote: 'Building the web' },
   { name: 'Rajvil', position: 'PR and Marketing Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076519/Rajvil_Website_Image_wt1d8e.jpg', quote: 'Spreading the word' },
   { name: 'Anshul', position: 'CPR Coordinator', image: '', quote: 'Creating partnerships' },
-  { name: 'Kushagra Srivastava', position: 'Finance Coordinator', image: '', quote: 'Managing finances' },
+  { name: 'Kushagra Srivastava', position: 'Finance Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767183867/1767101466459_fitfw7.png', quote: 'Managing finances' },
   { name: 'Ujjwal', position: 'Media Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767075945/WhatsApp_Image_2025-12-29_at_11.55.12_AM_lcyb9u.jpg', quote: 'Capturing moments' },
   { name: 'Riya', position: 'Media Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076610/IMG20251225123934_zwl0km.jpg', quote: 'Visual storytelling' },
   { name: 'Ayush', position: 'Junior Head', image: '', quote: 'Innovation first' },
-  { name: 'Divya', position: 'Junior Head', image: '', quote: 'Driving change' },
+  { name: 'Divya', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767176155/IMG_20240302_145430_787_gbiz8v.jpg', quote: 'Driving change' },
   { name: 'Hardik Anand', position: 'Junior Head', image: '', quote: 'Leading teams' },
   { name: 'Kanish', position: 'I&T Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767077252/IMG_20251229_211620_jmrmf1.jpg', quote: 'Innovation and Technology' },
   { name: 'Kushagra Bhartia', position: 'Junior Head', image: '', quote: 'Building future' },
