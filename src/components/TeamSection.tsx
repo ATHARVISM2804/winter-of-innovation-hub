@@ -1,48 +1,58 @@
 import { useEffect, useRef, useState } from 'react';
 import { Linkedin, Twitter, Instagram, Sparkles, Crown, Star, Users } from 'lucide-react';
 
+interface TeamMember {
+  name: string;
+  position: string;
+  image: string;
+  quote: string;
+  instagram?: string;
+  linkedin?: string;
+}
+
 // Final Year Team - 9 members
-const finalYearTeam = [
-  { name: 'Prashant Kumar', position: 'Overall Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767079998/IMG_20251229_130010_izrmau.jpg', quote: 'Leading innovation' },
-  { name: 'Krish Butani', position: 'Manager', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767079695/IMG_4662_a7hrrv.png', quote: 'Driving excellence' },
-  { name: 'Khushi', position: 'Assistant Manager', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767079638/1766144112597_sbitxk.png', quote: 'Supporting success' },
-  { name: 'Gyan', position: 'PR Head', image: '', quote: 'Building connections' },
-  { name: 'Kartik Gadade', position: 'Design Head', image: '', quote: 'Visualizing dreams' },
-  { name: 'Srujan', position: 'CPR Head', image: '', quote: 'Creating impact' },
-  { name: 'Vaishnav', position: 'Finance Head', image: '', quote: 'Managing resources' },
-  { name: 'Harshit', position: 'Event Head', image: '', quote: 'Crafting experiences' },
-  { name: 'Abhinav Dhiman', position: 'Event Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767176156/DSC_8943_3_udwsnl.jpg', quote: 'Making it happen' },
+const finalYearTeam: TeamMember[] = [
+  { name: 'Prashant Kumar', position: 'Overall Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767079998/IMG_20251229_130010_izrmau.jpg', quote: 'Leading innovation', instagram: 'https://www.instagram.com/itss._.prashant/', linkedin: 'https://www.linkedin.com/in/prashantkumar003/' },
+  { name: 'Krish Bhutani', position: 'Manager', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767079695/IMG_4662_a7hrrv.png', quote: 'Driving excellence', instagram: 'https://www.instagram.com/krish_bhutani_/', linkedin: 'https://www.linkedin.com/in/krishbhutani/' },
+  { name: 'Khushi', position: 'Assistant Manager', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767079638/1766144112597_sbitxk.png', quote: 'Supporting success', instagram: 'https://www.instagram.com/khushi._.singh_.1106', linkedin: 'https://www.linkedin.com/in/khushi-singh-230a97253/' },
+  { name: 'Gyan', position: 'PR Head', image: '', quote: 'Building connections', instagram: 'https://www.instagram.com/i.gyanprakashsah.fbb0001t/', linkedin: 'https://www.linkedin.com/in/gyanprakash001t/' },
+  { name: 'Kartik Gadade', position: 'Design Head', image: '', quote: 'Visualizing dreams', instagram: 'https://www.instagram.com/kartik_506/', linkedin: 'https://www.linkedin.com/in/kartik506/' },
+  { name: 'Srujan', position: 'CPR Head', image: '', quote: 'Creating impact', instagram: 'https://www.instagram.com/srujan_1109/', linkedin: 'https://www.linkedin.com/in/srujan-sontakke-72750b257/' },
+  { name: 'Vaishnav', position: 'Finance Head', image: '', quote: 'Managing resources', instagram: 'https://www.instagram.com/vaishnav145876/' },
+  { name: 'Harshit', position: 'Event Head', image: '', quote: 'Crafting experiences', instagram: 'https://www.instagram.com/_harshit.parti_/', linkedin: 'https://www.linkedin.com/in/harshit-parti/' },
+  { name: 'Abhinav Dhiman', position: 'Event Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767176156/DSC_8943_3_udwsnl.jpg', quote: 'Making it happen', instagram: 'https://www.instagram.com/dhimanabhi8069/', linkedin: 'https://www.linkedin.com/in/abhinav-dhiman-ba7b1328a/' },
 ];
 
 // 3rd Year Team - 23 members
-const thirdYearTeam = [
-  { name: 'Atharv', position: 'Web Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076457/atharv_lpkcnw.jpg', quote: 'Building the web' },
-  { name: 'Rajvil', position: 'PR and Marketing Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076519/Rajvil_Website_Image_wt1d8e.jpg', quote: 'Spreading the word' },
-  { name: 'Anshul', position: 'CPR Coordinator', image: '', quote: 'Creating partnerships' },
-  { name: 'Kushagra Srivastava', position: 'Finance Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767183867/1767101466459_fitfw7.png', quote: 'Managing finances' },
-  { name: 'Ujjwal', position: 'Media Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767075945/WhatsApp_Image_2025-12-29_at_11.55.12_AM_lcyb9u.jpg', quote: 'Capturing moments' },
-  { name: 'Riya', position: 'Media Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076610/IMG20251225123934_zwl0km.jpg', quote: 'Visual storytelling' },
+const thirdYearTeam: TeamMember[] = [
+   { name: 'Kushagra Srivastava', position: 'Finance Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767183867/1767101466459_fitfw7.png', quote: 'Managing finances', instagram: 'https://www.instagram.com/__kushagra.___/', linkedin: 'https://www.linkedin.com/in/kushagra-srivastava-1b342a291/' },
+  { name: 'Rajvil', position: 'PR and Marketing Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076519/Rajvil_Website_Image_wt1d8e.jpg', quote: 'Spreading the word', instagram: 'https://www.instagram.com/rajvilchoudhary/', linkedin: 'https://www.linkedin.com/in/rajvil-choudhary/' },
+  { name: 'Anshul', position: 'CPR Coordinator', image: '', quote: 'Creating partnerships', instagram: 'https://www.instagram.com/77ucent/', linkedin: 'https://www.linkedin.com/in/anshul-anji-82b500285/' },
+  { name: 'Atharv', position: 'Web Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076457/atharv_lpkcnw.jpg', quote: 'Building the web', instagram: 'https://www.instagram.com/_atharv.vv__/', linkedin: 'https://www.linkedin.com/in/atharv-golait-9048772ab' },
+  
+  { name: 'Ujjwal', position: 'Media Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767075945/WhatsApp_Image_2025-12-29_at_11.55.12_AM_lcyb9u.jpg', quote: 'Capturing moments', instagram: 'https://www.instagram.com/ujjwal.kumar12/', linkedin: 'https://www.linkedin.com/in/ujjwal-kumar2004/' },
+  { name: 'Riya', position: 'Media Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076610/IMG20251225123934_zwl0km.jpg', quote: 'Visual storytelling', instagram: 'https://www.instagram.com/reyy_anand/', linkedin: 'https://www.linkedin.com/in/riya-anand-18671825a/' },
   { name: 'Ayush', position: 'Junior Head', image: '', quote: 'Innovation first' },
-  { name: 'Divya', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767176155/IMG_20240302_145430_787_gbiz8v.jpg', quote: 'Driving change' },
-  { name: 'Hardik Anand', position: 'Junior Head', image: '', quote: 'Leading teams' },
-  { name: 'Kanish', position: 'I&T Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767077252/IMG_20251229_211620_jmrmf1.jpg', quote: 'Innovation and Technology' },
-  { name: 'Kushagra Bhartia', position: 'Junior Head', image: '', quote: 'Building future' },
-  { name: 'Lokesh', position: 'Junior Head', image: '', quote: 'Executing excellence' },
-  { name: 'Madhav', position: 'Junior Head', image: '', quote: 'Inspiring teams' },
-  { name: 'Madhaw Bagadia', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767077473/1766346910587_akizqv.jpg', quote: 'Creating value' },
-  { name: 'Mudavat Kashi', position: 'Junior Head', image: '', quote: 'Delivering results' },
-  { name: 'Nikhil Panthi', position: 'Junior Head', image: '', quote: 'Strategic thinking' },
-  { name: 'Nimish', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767077191/df2c2b48-9b6f-4c01-8614-4a1fe336c1b5_mkuq1b.jpg', quote: 'Problem solving' },
-  { name: 'Seema', position: 'Junior Head', image: '', quote: 'Team building' },
-  { name: 'Shagun', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076737/IMG_20251229_212522_udgavb.jpg', quote: 'Driving growth' },
-  { name: 'Yash Pandey', position: 'Junior Head', image: '', quote: 'Innovation leader' },
-  { name: 'Yashi', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076688/IMG_20251230_000501_ni73bm.jpg', quote: 'Excellence driven' },
-  { name: 'Samiksha', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767077147/WhatsApp_Image_2025-12-29_at_21.58.02_jnfg9r.jpg', quote: 'Passionate leader' },
-  { name: 'Suneha', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076794/4864fa2e-d79f-40c0-869a-a06d345747f5_coetsb.jpg', quote: 'Committed to success' },
+  { name: 'Divya', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767176155/IMG_20240302_145430_787_gbiz8v.jpg', quote: 'Driving change', linkedin: 'https://www.linkedin.com/in/divya-jaiswal-930550282/' },
+  { name: 'Hardik Anand', position: 'Junior Head', image: '', quote: 'Leading teams', linkedin: 'https://www.linkedin.com/in/hardik-anand-84b6382a2/' },
+  { name: 'Kanish', position: 'I&T Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767077252/IMG_20251229_211620_jmrmf1.jpg', quote: 'Innovation and Technology', instagram: 'https://www.instagram.com/kanishdhiman02/', linkedin: 'https://www.linkedin.com/in/kanish-dhiman/' },
+  { name: 'Kushagra Bhartia', position: 'Junior Head', image: '', quote: 'Building future', instagram: 'https://www.instagram.com/kushagra_bhartia/', linkedin: 'https://www.linkedin.com/in/kushagra-bhartia-8670291b2/' },
+  { name: 'Lokesh', position: 'Junior Head', image: '', quote: 'Executing excellence', instagram: 'https://www.instagram.com/lokesh.28_/' },
+  { name: 'Madhav', position: 'Junior Head', image: '', quote: 'Inspiring teams', instagram: 'https://www.instagram.com/_madhav_63/', linkedin: 'https://www.linkedin.com/in/madhav-goyal-748a9a230/' },
+  { name: 'Madhaw Bagadia', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767077473/1766346910587_akizqv.jpg', quote: 'Creating value', instagram: 'https://www.instagram.com/madhawbagadia/', linkedin: 'https://www.linkedin.com/in/madhaw-kumar-bagadia-79038a28a/' },
+  { name: 'Mudavat Kashi', position: 'Junior Head', image: '', quote: 'Delivering results', instagram: 'https://www.instagram.com/kashiii_067/' },
+  { name: 'Nikhil Panthi', position: 'Junior Head', image: '', quote: 'Strategic thinking', instagram: 'https://www.instagram.com/nikkkhiil.__/', linkedin: 'https://www.linkedin.com/in/nikhilpanthi/' },
+  { name: 'Nimish', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767077191/df2c2b48-9b6f-4c01-8614-4a1fe336c1b5_mkuq1b.jpg', quote: 'Problem solving', instagram: 'https://www.instagram.com/nimishh.music/', linkedin: 'https://www.linkedin.com/in/nimish-saxena-3433a52b5/' },
+  { name: 'Seema', position: 'Junior Head', image: '', quote: 'Team building', linkedin: 'https://www.linkedin.com/in/seema-singh-b097a0287/' },
+  { name: 'Shagun', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076737/IMG_20251229_212522_udgavb.jpg', quote: 'Driving growth', instagram: 'https://www.instagram.com/rana_shagun04/', linkedin: 'https://www.linkedin.com/in/shagun-rana-0093a2341/' },
+  { name: 'Yash Pandey', position: 'Junior Head', image: '', quote: 'Innovation leader', instagram: 'https://www.instagram.com/yash._.pandey/', linkedin: 'https://www.linkedin.com/in/yash-pandey-b02579288/' },
+  { name: 'Yashi', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076688/IMG_20251230_000501_ni73bm.jpg', quote: 'Excellence driven', instagram: 'https://www.instagram.com/_ya.she_/', linkedin: 'https://www.linkedin.com/in/yashi-sharma-5244ab2b1/' },
+  { name: 'Samiksha', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767077147/WhatsApp_Image_2025-12-29_at_21.58.02_jnfg9r.jpg', quote: 'Passionate leader', instagram: 'https://www.instagram.com/samikshagupta_1804/', linkedin: 'https://www.linkedin.com/in/samiksha-gupta-2119b52b0/' },
+  { name: 'Suneha', position: 'Junior Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767076794/4864fa2e-d79f-40c0-869a-a06d345747f5_coetsb.jpg', quote: 'Committed to success', instagram: 'https://www.instagram.com/suneha_0_0_', linkedin: 'https://www.linkedin.com/in/suneha-choudhary-1667b22a6/' },
 ];
 
 interface TeamMemberCardProps {
-  member: typeof finalYearTeam[0];
+  member: TeamMember;
   index: number;
 }
 
@@ -123,20 +133,28 @@ const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
           
           {/* Social Links Below Profile - Responsive sizing */}
           <div className="flex items-center justify-center gap-2 sm:gap-3">
-            <a
-              href="#"
-              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-winter-dark/50 border border-winter-cyan/30 flex items-center justify-center hover:bg-winter-cyan/20 hover:border-winter-cyan transition-all duration-300 hover:scale-110"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-3 h-3 sm:w-4 sm:h-4 text-winter-cyan" />
-            </a>
-            <a
-              href="#"
-              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-winter-dark/50 border border-winter-cyan/30 flex items-center justify-center hover:bg-winter-cyan/20 hover:border-winter-cyan transition-all duration-300 hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 text-winter-cyan" />
-            </a>
+            {member.instagram && (
+              <a
+                href={member.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-winter-dark/50 border border-winter-cyan/30 flex items-center justify-center hover:bg-winter-cyan/20 hover:border-winter-cyan transition-all duration-300 hover:scale-110"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-3 h-3 sm:w-4 sm:h-4 text-winter-cyan" />
+              </a>
+            )}
+            {member.linkedin && (
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-winter-dark/50 border border-winter-cyan/30 flex items-center justify-center hover:bg-winter-cyan/20 hover:border-winter-cyan transition-all duration-300 hover:scale-110"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 text-winter-cyan" />
+              </a>
+            )}
           </div>
           
           {/* Sparkle decoration */}
@@ -148,7 +166,7 @@ const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
 };
 
 interface SlidingTeamRowProps {
-  team: typeof finalYearTeam;
+  team: TeamMember[];
   title: string;
   yearBadge: string;
   direction?: 'left' | 'right';
