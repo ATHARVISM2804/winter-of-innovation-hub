@@ -29,19 +29,48 @@ const ContactSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate submission delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "✨ Message Sent!",
-      description: "We'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("access_key", "5b1d3cba-49cd-4547-b240-c63daa42f5f4");
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("message", formData.message);
+      formDataToSend.append("subject", "New Contact Form Submission - E-Summit 2K26");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for reaching out. We'll get back to you within 24-48 hours.",
+          variant: "success" as any,
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        toast({
+          title: "Oops! Something went wrong",
+          description: "Failed to send your message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Connection Error",
+        description: "Unable to reach the server. Please check your internet connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
