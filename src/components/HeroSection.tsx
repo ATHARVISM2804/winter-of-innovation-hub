@@ -206,7 +206,7 @@ const HeroSection = () => {
                 <MapPin className="w-5 h-5 text-winter-cyan" />
               </div>
               <span className="text-base md:text-lg font-rajdhani">NIT Hamirpur</span>
-            </div>
+            </div>  
           </div>
 
           {/* CTA Buttons */}

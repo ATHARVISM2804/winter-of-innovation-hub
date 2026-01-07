@@ -12,7 +12,7 @@ interface TeamMember {
 
 // Final Year Team - 9 members
 const finalYearTeam: TeamMember[] = [
-  { name: 'Prashant Kumar', position: 'Overall Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767079998/IMG_20251229_130010_izrmau.jpg', quote: 'Leading innovation', instagram: 'https://www.instagram.com/itss._.prashant/', linkedin: 'https://www.linkedin.com/in/prashantkumar003/' },
+  { name: 'Prashant Kumar', position: 'Overall Coordinator', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767782213/prashant_rjmc38.jpg', quote: 'Leading innovation', instagram: 'https://www.instagram.com/itss._.prashant/', linkedin: 'https://www.linkedin.com/in/prashantkumar003/' },
   { name: 'Krish Bhutani', position: 'Manager', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767079695/IMG_4662_a7hrrv.png', quote: 'Driving excellence', instagram: 'https://www.instagram.com/krish_bhutani_/', linkedin: 'https://www.linkedin.com/in/krishbhutani/' },
   { name: 'Khushi', position: 'Assistant Manager', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767079638/1766144112597_sbitxk.png', quote: 'Supporting success', instagram: 'https://www.instagram.com/khushi._.singh_.1106', linkedin: 'https://www.linkedin.com/in/khushi-singh-230a97253/' },
   { name: 'Gyan', position: 'PR Head', image: 'https://res.cloudinary.com/dinhcaf2c/image/upload/v1767293247/gyan_dw8bir.jpg', quote: 'Building connections', instagram: 'https://www.instagram.com/i.gyanprakashsah.fbb0001t/', linkedin: 'https://www.linkedin.com/in/gyanprakash001t/' },
