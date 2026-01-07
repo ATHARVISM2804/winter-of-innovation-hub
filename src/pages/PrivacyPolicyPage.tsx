@@ -162,10 +162,10 @@ const PrivacyPolicyPage = () => {
                     For privacy-related questions or to exercise your rights, contact us at
                   </p>
                   <a 
-                    href="mailto:privacy@ecellnith.in" 
+                    href="mailto:ecell@nith.ac.in" 
                     className="inline-flex items-center gap-2 px-6 py-3 bg-winter-cyan/10 border border-winter-cyan/40 rounded-full text-winter-cyan hover:bg-winter-cyan/20 hover:border-winter-cyan transition-all font-rajdhani"
                   >
-                    privacy@ecellnith.in
+                    ecell@nith.ac.in
                   </a>
                 </div>
               </div>

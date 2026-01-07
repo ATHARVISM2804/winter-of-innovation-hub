@@ -180,10 +180,10 @@ const TermsOfServicePage = () => {
                     For questions regarding these terms of service, reach out to us at
                   </p>
                   <a 
-                    href="mailto:legal@ecellnith.in" 
+                    href="mailto:ecell@nith.ac.in" 
                     className="inline-flex items-center gap-2 px-6 py-3 bg-winter-cyan/10 border border-winter-cyan/40 rounded-full text-winter-cyan hover:bg-winter-cyan/20 hover:border-winter-cyan transition-all font-rajdhani"
                   >
-                    legal@ecellnith.in
+                    ecell@nith.ac.in
                   </a>
                 </div>
               </div>

@@ -75,8 +75,8 @@ const TermsOfService = () => {
       <div className="mt-8 p-5 bg-gradient-to-r from-winter-cyan/5 to-purple-500/5 border border-winter-cyan/20 rounded-xl">
         <p className="font-cormorant text-winter-silver/80 text-base leading-relaxed">
           Questions about these terms? Reach out to us at{' '}
-          <a href="mailto:legal@ecellnith.in" className="text-winter-cyan hover:text-winter-frost transition-colors underline underline-offset-4">
-            legal@ecellnith.in
+          <a href="mailto:ecell@nith.ac.in" className="text-winter-cyan hover:text-winter-frost transition-colors underline underline-offset-4">
+            ecell@nith.ac.in
           </a>
         </p>
       </div>
