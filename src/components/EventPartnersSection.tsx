@@ -284,16 +284,14 @@ const EventPartnersSection = () => {
           </div>
 
           <h2
-            className={`font-cinzel-decorative text-5xl md:text-7xl font-bold mb-6 transition-all duration-1000 ${
+            className={`font-cinzel-decorative text-4xl md:text-6xl font-bold enchanted-text mb-6 transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <span className="bg-gradient-to-r from-winter-cyan via-winter-frost to-winter-teal bg-clip-text text-transparent">
-              Event Partners
-            </span>
+            Event Partners
           </h2>
           <p
-            className={`font-cormorant text-xl md:text-2xl text-winter-silver/70 max-w-3xl mx-auto italic transition-all duration-1000 delay-100 ${
+            className={`font-cormorant text-xl text-winter-silver/70 max-w-2xl mx-auto italic transition-all duration-1000 delay-100 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -358,17 +356,17 @@ const EventPartnersSection = () => {
         <div className={`text-center mt-24 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <a 
             href="#contact"
-            className="group relative inline-flex items-center gap-4 px-12 py-5 font-rajdhani text-xl font-semibold bg-gradient-to-r from-winter-cyan/20 via-winter-teal/15 to-winter-purple/20 border-2 border-winter-cyan/40 rounded-full text-winter-frost hover:from-winter-cyan/30 hover:via-winter-teal/25 hover:to-winter-purple/30 hover:border-winter-cyan/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-winter-cyan/20 overflow-hidden"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 font-rajdhani text-lg border border-winter-cyan/40 rounded-full text-winter-frost hover:bg-winter-cyan/10 hover:border-winter-cyan transition-all duration-300"
           >
             {/* Animated Background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-winter-cyan/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            <div className="absolute inset-0 rounded-full bg-winter-cyan/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             
-            <Hexagon className="w-6 h-6 relative z-10 group-hover:rotate-90 transition-transform duration-500" />
+            <Hexagon className="w-5 h-5 relative z-10 group-hover:rotate-90 transition-transform duration-500" />
             <span className="relative z-10">Become an Event Partner</span>
-            <ArrowRight className="w-6 h-6 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
+            <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
           </a>
           
-          <p className="mt-6 font-cormorant text-winter-silver/60 italic">
+          <p className="mt-6 font-cormorant text-lg text-winter-silver/60 italic">
             Partner with us to make this event unforgettable
           </p>
         </div>
