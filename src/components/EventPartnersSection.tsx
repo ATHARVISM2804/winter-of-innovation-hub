@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Sparkles, Hexagon, ArrowRight, Users2 } from 'lucide-react';
 
 const eventPartners = [
-  { name: 'Fueler', logo: null },
-  { name: 'Westraty Ventures', logo: null },
-  { name: 'GfG', logo: null },
-  { name: 'Unstop', logo: null },
-  { name: 'Alchemyst AI', logo: null },
-  { name: 'SJVN', logo: null },
+  { name: 'Fueler', logo: 'https://res.cloudinary.com/dmhabztbf/image/upload/v1769577500/fueler_logo_kkerbs.svg' },
+  { name: 'Westraty Ventures', logo: 'https://res.cloudinary.com/dmhabztbf/image/upload/v1769577501/WESTRATY_VENTURES_new_logo-removebg-preview_fimh8d.png' },
+  { name: 'GfG', logo: 'https://res.cloudinary.com/dmhabztbf/image/upload/v1769577500/gfg-gg-logo_axyhtt.svg' },
+  { name: 'Unstop', logo: 'https://res.cloudinary.com/dmhabztbf/image/upload/v1769577610/images_1_cuizr9.jpg' },
+  { name: 'Alchemyst AI', logo: 'https://res.cloudinary.com/dmhabztbf/image/upload/v1769577500/logo_2_mczz5a.png' },
+  { name: 'SJVN', logo: 'https://res.cloudinary.com/dmhabztbf/image/upload/v1769577500/logo_1_jjraof.png' },
 ];
 
 const EventPartnersSection = () => {
@@ -40,8 +40,8 @@ const EventPartnersSection = () => {
       style.innerHTML = `
         .hexagon-container {
           position: relative;
-          width: 200px;
-          height: 230px;
+          width: 220px;
+          height: 250px;
           margin: 0 auto;
         }
         
@@ -50,10 +50,10 @@ const EventPartnersSection = () => {
           width: 100%;
           height: 100%;
           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-          background: linear-gradient(135deg, 
-            rgba(30, 58, 95, 0.8) 0%, 
-            rgba(15, 30, 50, 0.9) 50%,
-            rgba(30, 58, 95, 0.8) 100%
+          background: linear-gradient(160deg, 
+            rgba(30, 60, 100, 0.85) 0%, 
+            rgba(15, 35, 65, 0.95) 40%,
+            rgba(20, 45, 80, 0.9) 100%
           );
           display: flex;
           flex-direction: column;
@@ -61,6 +61,7 @@ const EventPartnersSection = () => {
           justify-content: center;
           transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
+          backdrop-filter: blur(10px);
         }
 
         .hexagon-card::before {
@@ -68,44 +69,46 @@ const EventPartnersSection = () => {
           position: absolute;
           inset: -3px;
           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-          background: linear-gradient(135deg, 
-            hsl(187 100% 50% / 0.4) 0%, 
-            hsl(270 50% 50% / 0.3) 50%,
-            hsl(187 100% 42% / 0.4) 100%
+          background: linear-gradient(160deg, 
+            hsl(187 100% 60% / 0.6) 0%, 
+            hsl(210 80% 50% / 0.4) 30%,
+            hsl(270 60% 55% / 0.5) 70%,
+            hsl(187 100% 55% / 0.6) 100%
           );
           z-index: -1;
           transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hexagon-container:hover .hexagon-card::before {
-          inset: -4px;
-          background: linear-gradient(135deg, 
-            hsl(187 100% 50% / 0.8) 0%, 
-            hsl(270 50% 50% / 0.6) 50%,
-            hsl(187 100% 42% / 0.8) 100%
+          inset: -5px;
+          background: linear-gradient(160deg, 
+            hsl(187 100% 60% / 0.9) 0%, 
+            hsl(210 80% 55% / 0.7) 30%,
+            hsl(270 60% 60% / 0.8) 70%,
+            hsl(187 100% 60% / 0.9) 100%
           );
-          filter: blur(4px);
+          filter: blur(6px);
         }
 
         .hexagon-container:hover .hexagon-card {
-          transform: translateY(-8px) scale(1.02);
-          background: linear-gradient(135deg, 
-            rgba(40, 80, 120, 0.9) 0%, 
-            rgba(20, 40, 70, 0.95) 50%,
-            rgba(40, 80, 120, 0.9) 100%
+          transform: translateY(-12px) scale(1.04);
+          background: linear-gradient(160deg, 
+            rgba(40, 85, 130, 0.95) 0%, 
+            rgba(25, 50, 90, 0.98) 40%,
+            rgba(35, 65, 110, 0.95) 100%
           );
         }
 
         .hexagon-glow {
           position: absolute;
-          inset: -15px;
+          inset: -25px;
           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-          background: linear-gradient(135deg, 
-            hsl(187 100% 50% / 0.2) 0%, 
-            hsl(270 50% 50% / 0.15) 50%,
-            hsl(187 100% 42% / 0.2) 100%
+          background: linear-gradient(160deg, 
+            hsl(187 100% 55% / 0.3) 0%, 
+            hsl(270 60% 55% / 0.25) 50%,
+            hsl(187 100% 50% / 0.3) 100%
           );
-          filter: blur(20px);
+          filter: blur(25px);
           z-index: -2;
           opacity: 0;
           transition: opacity 0.5s ease;
@@ -120,44 +123,68 @@ const EventPartnersSection = () => {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 80%;
-          height: 80%;
-          background: radial-gradient(circle, 
-            hsl(187 100% 50% / 0.1) 0%, 
+          width: 90%;
+          height: 90%;
+          background: radial-gradient(ellipse at center, 
+            hsl(187 100% 60% / 0.15) 0%, 
+            hsl(270 50% 50% / 0.05) 40%,
             transparent 70%
           );
           z-index: 0;
         }
 
+        .hexagon-shimmer {
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            transparent 100%
+          );
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          transition: left 0.8s ease;
+        }
+
+        .hexagon-container:hover .hexagon-shimmer {
+          left: 100%;
+        }
+
         .partner-name {
           font-family: 'Cinzel', serif;
-          font-weight: 600;
-          font-size: 1.1rem;
+          font-weight: 700;
+          font-size: 1rem;
           text-align: center;
-          background: linear-gradient(135deg, 
-            hsl(187 100% 80%) 0%, 
-            hsl(200 100% 90%) 50%,
-            hsl(187 100% 70%) 100%
+          background: linear-gradient(160deg, 
+            hsl(0 0% 100%) 0%, 
+            hsl(187 80% 85%) 50%,
+            hsl(200 90% 90%) 100%
           );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           transition: all 0.4s ease;
-          padding: 0 16px;
+          padding: 0 12px;
           line-height: 1.3;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
         }
 
         .hexagon-container:hover .partner-name {
-          text-shadow: 0 0 20px hsl(187 100% 50% / 0.5);
+          filter: drop-shadow(0 0 15px hsl(187 100% 60% / 0.6));
+          transform: scale(1.02);
         }
 
         .partner-initial {
           font-family: 'Cinzel Decorative', 'Cinzel', serif;
           font-size: 2.5rem;
           font-weight: 700;
-          background: linear-gradient(135deg, 
-            hsl(187 100% 50%) 0%, 
-            hsl(270 50% 60%) 100%
+          background: linear-gradient(160deg, 
+            hsl(187 100% 60%) 0%, 
+            hsl(270 60% 65%) 100%
           );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -170,50 +197,53 @@ const EventPartnersSection = () => {
         .hexagon-container:hover .partner-initial {
           opacity: 1;
           transform: scale(1.1);
+          filter: drop-shadow(0 0 20px hsl(187 100% 55% / 0.5));
         }
 
         .partner-badge {
           display: flex;
           align-items: center;
           gap: 6px;
-          margin-top: 12px;
-          padding: 6px 14px;
-          background: linear-gradient(135deg, 
-            rgba(14, 165, 233, 0.15) 0%, 
-            rgba(139, 92, 246, 0.1) 100%
+          margin-top: 10px;
+          padding: 5px 12px;
+          background: linear-gradient(160deg, 
+            rgba(14, 165, 233, 0.2) 0%, 
+            rgba(139, 92, 246, 0.15) 100%
           );
-          border: 1px solid rgba(14, 165, 233, 0.3);
+          border: 1px solid rgba(14, 165, 233, 0.4);
           border-radius: 9999px;
           transition: all 0.4s ease;
+          backdrop-filter: blur(5px);
         }
 
         .hexagon-container:hover .partner-badge {
-          background: linear-gradient(135deg, 
-            rgba(14, 165, 233, 0.25) 0%, 
-            rgba(139, 92, 246, 0.2) 100%
+          background: linear-gradient(160deg, 
+            rgba(14, 165, 233, 0.35) 0%, 
+            rgba(139, 92, 246, 0.25) 100%
           );
-          border-color: rgba(14, 165, 233, 0.5);
-          transform: scale(1.05);
+          border-color: rgba(14, 165, 233, 0.7);
+          transform: scale(1.08);
+          box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
         }
 
         .partner-badge span {
           font-family: 'Rajdhani', sans-serif;
-          font-size: 0.7rem;
-          font-weight: 600;
+          font-size: 0.65rem;
+          font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.15em;
-          color: hsl(187 100% 80%);
+          color: hsl(187 100% 85%);
         }
 
         @media (max-width: 768px) {
           .hexagon-container {
-            width: 160px;
-            height: 184px;
+            width: 170px;
+            height: 195px;
           }
           
           .partner-name {
-            font-size: 0.9rem;
-            padding: 0 12px;
+            font-size: 0.85rem;
+            padding: 0 10px;
           }
           
           .partner-initial {
@@ -225,7 +255,7 @@ const EventPartnersSection = () => {
           }
           
           .partner-badge span {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
           }
         }
 
@@ -234,7 +264,7 @@ const EventPartnersSection = () => {
             transform: translateY(0);
           }
           50% {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
           }
         }
 
@@ -325,15 +355,22 @@ const EventPartnersSection = () => {
               <div className="hexagon-container">
                 <div className="hexagon-glow" />
                 <div className="hexagon-card">
+                  <div className="hexagon-shimmer" />
                   <div className="hexagon-inner-glow" />
                   <div className="relative z-10 flex flex-col items-center justify-center">
                     {partner.logo ? (
-                      <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center mb-3 shadow-lg">
-                        <img 
-                          src={partner.logo} 
-                          alt={partner.name}
-                          className="max-w-[80%] max-h-[80%] object-contain"
-                        />
+                      <div className="relative w-24 h-24 mb-3">
+                        {/* Logo with transparent/themed styling */}
+                        <div className="w-full h-full rounded-xl flex items-center justify-center overflow-hidden">
+                          <img 
+                            src={partner.logo} 
+                            alt={partner.name}
+                            className="w-full h-full object-contain p-2 brightness-110 contrast-110"
+                            style={{
+                              filter: 'drop-shadow(0 0 8px rgba(100, 200, 255, 0.3))'
+                            }}
+                          />
+                        </div>
                       </div>
                     ) : (
                       <span className="partner-initial">
