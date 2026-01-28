@@ -1,23 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
-import { Sparkles, Ticket, Users, GraduationCap, Crown, Check, ArrowRight } from 'lucide-react';
+import { Sparkles, Ticket, Users, GraduationCap, Crown, Check, ArrowRight, Calendar } from 'lucide-react';
 
 const packages = [
   {
-    id: 'single',
-    title: 'Single Student',
-    subtitle: 'Individual Pass',
-    price: 349,
-    originalPrice: 499,
+    id: 'oneday',
+    title: 'One Day Pass',
+    subtitle: 'Single Day Access',
+    price: 149,
+    originalPrice: 249,
     perText: 'per person',
-    icon: Ticket,
+    icon: Calendar,
     features: [
-      'Full 3-Day Access',
-      'All Keynote Sessions',
+      'Single Day Access',
+      'Keynote Sessions',
       'Networking Events',
-      'Workshop Access',
       'Certificate',
     ],
-    accentColor: 'winter-cyan',
+    accentColor: 'teal',
     popular: false,
   },
   {
@@ -55,6 +54,24 @@ const packages = [
       'Certificate',
     ],
     accentColor: 'purple',
+    popular: false,
+  },
+  {
+    id: 'single',
+    title: 'Single Student',
+    subtitle: '3-Day Individual Pass',
+    price: 349,
+    originalPrice: 499,
+    perText: 'per person',
+    icon: Ticket,
+    features: [
+      'Full 3-Day Access',
+      'All Keynote Sessions',
+      'Networking Events',
+      'Workshop Access',
+      'Certificate',
+    ],
+    accentColor: 'winter-cyan',
     popular: false,
   },
 ];
@@ -146,6 +163,14 @@ const EventPackagesSection = () => {
         iconBg: 'from-emerald-400/20 to-teal-500/20',
         iconBorder: 'border-emerald-400/30',
       },
+      'teal': {
+        border: 'border-teal-400/20 hover:border-teal-400/40',
+        text: 'text-teal-400',
+        bg: 'bg-teal-400/10',
+        glow: 'bg-teal-400/30',
+        iconBg: 'from-teal-400/20 to-cyan-500/20',
+        iconBorder: 'border-teal-400/30',
+      },
     };
     return colors[color] || colors['winter-cyan'];
   };
@@ -205,19 +230,19 @@ const EventPackagesSection = () => {
             Choose the perfect package for your journey into innovation
           </p>
           
-          {/* 3-Day Access Badge */}
+          {/* Access Badge */}
           <div className={`mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-winter-cyan/10 border border-winter-cyan/30 transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <Sparkles className="w-4 h-4 text-winter-cyan animate-pulse" />
             <span className="font-rajdhani text-sm font-semibold text-winter-frost tracking-wide">
-              Full 3-Day Access Included
+              Choose 1-Day or Full 3-Day Access
             </span>
           </div>
         </div>
 
         {/* Individual Packages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
           {packages.map((pkg, index) => {
             const Icon = pkg.icon;
             const accent = getAccentClasses(pkg.accentColor, pkg.popular);
