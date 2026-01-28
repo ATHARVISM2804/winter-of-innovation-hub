@@ -320,7 +320,9 @@ const EventPackagesSection = () => {
 
                   {/* CTA Button */}
                   <a
-                    href="#contact"
+                    href="https://forms.gle/Jn6ScP2PMWT6Nhg69"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`relative w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-rajdhani text-sm font-bold transition-all duration-300 overflow-hidden z-10 ${
                       pkg.popular
                         ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-winter-deep hover:from-amber-400 hover:to-amber-500 shadow-lg shadow-amber-500/20'
@@ -417,10 +419,10 @@ const EventPackagesSection = () => {
 
                 {/* CTA */}
                 <a
-                  href="#contact"
+                  href="tel:+919015011748"
                   className="group/btn flex items-center justify-center md:justify-start gap-2 py-3 px-6 rounded-xl font-rajdhani text-sm font-bold bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-400 hover:to-teal-400 shadow-lg shadow-emerald-500/20 transition-all duration-300 w-full md:w-auto"
                 >
-                  <span>Contact for Bulk Booking</span>
+                  <span>Contact for Bulk Booking: +91 90150 11748</span>
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </a>
               </div>
